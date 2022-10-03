@@ -6,17 +6,26 @@
       <!-- Add icons to the links using the .nav-icon class
            with font-awesome or any other icon font library -->
            <li class="nav-item">
-            <a href="{{route('muzakkip.index')}}" class="nav-link">
+            <a href="{{route('dashboard')}}" class="nav-link">
               <i class="nav-icon bi bi-clipboard-fill"></i>
+              <p>
+                Dashboard
+              </p>
+            </a>
+          </li>
+           <li class="nav-item">
+            <a href="{{route('muzakkip.index')}}" class="nav-link">
+              <i class="nav-icon bi bi-people-fill"></i>
               <p>
                 Muzakki
               </p>
             </a>
           </li>
      <li class="nav-item">
+      <a href="{{route('mustahiqp.index')}}" class="nav-link">
           <i class="nav-icon bi bi-people-fill"></i>
           <p>
-           Data
+           Mustahiq
           </p>
         </a>
       </li>

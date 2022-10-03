@@ -11,7 +11,7 @@ class muzakkis extends Model
     public $timestamps = false;
     protected $table = "muzakkis";
     protected $fillable = [
-        'nama_muzakki', 'usia','no_hp','alamat'
+        'nama_muzakki', 'usia','no_hp','alamat','username','password',
 
     ];
 }

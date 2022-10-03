@@ -55,5 +55,75 @@ class ZakatController extends Controller
         return redirect('muzakkip.index');
     }
 
+     /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+
+     public function show ($id)
+     {
+         $muzakkis = muzakkis::oldest('id')->simplepaginate(1);
+         return view('muzakki.detail', compact('muzakkis'));
+     }
+
+     /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+
+     public function edit ($id)
+     {
+         $muzakkis = muzakkis::where('id', $id)->first();
+         return view('muzakki.show', [
+             "muzakkis" => $muzakkis,
+         ]);
+     }
+
+     /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+
+     public function update(Request $request, $id)
+     {
+         $this->validate($request, [
+             'nama_muzakki' => 'required',
+             'usia' => 'required',
+             'no_hp' => 'required',
+             'alamat' => 'required',
+         ]);
+
+         $muzakkis = muzakkis::where('id', $id);
+         $muzakkis->update($request->except('_token','_method'));
+         return redirect()->route('muzakkip.index');
+     }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+
+    public function destroy ($id)
+    {
+        $muzakkis = muzakkis::find($id);
+        $muzakkis->delete();
+        return to_route('muzakkip.index')->with('hapus data berhasil>');
+    }
+
+    public function dashboard()
+    {
+        $muzakkis = muzakkis::count();
+        return view('muzakki.dashboard', compact('muzakkis'));
+    }
+
 
 }

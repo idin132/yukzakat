@@ -1,4 +1,4 @@
-@extends('muzakki.layout')
+@extends('tampilan.layout')
 
 @section('content')
 
@@ -11,7 +11,6 @@
         <h3>Table Muzakki</h3>
     </div>
         <br>
-        <a class="btn btn-success">+</a>
         <br><br>
         <table class="table table-striped ">
             <thead>
@@ -34,7 +33,7 @@
                     <td>
 
 
-                        <form>
+                        <form action="{{ route ('muzakkip.destroy', $muzakki->id) }} " method="post">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger">
@@ -42,8 +41,8 @@
                                 </button>
                               </form>
 
-                        <a class="btn btn-primary bi bi-card-text"></a>
-                            <a class="btn btn-warning">
+                              <a href="{{route('muzakkip.show', $muzakki->id)}}" class="btn btn-primary bi bi-card-text"></a>
+                        <a href="{{route ('muzakkip.edit', $muzakki->id)}}" class="btn btn-warning">
                                 <i class="fas fa-solid fa-pen"></i>
                               </a>
                     </td>

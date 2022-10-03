@@ -19,6 +19,8 @@ return new class extends Migration
             $table->string('usia');
             $table->string('no_hp');
             $table->string('alamat');
+            $table->string('username');
+            $table->string('password');
         });
     }
 
