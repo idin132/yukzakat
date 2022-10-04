@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\zakats;
+use App\Models\muzakkis;
 
-class ZakatController extends Controller
+class MuzakkiController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class ZakatController extends Controller
      */
     public function index()
     {
-        $zakats = zakats::all();
-        return view ('zakat.index', compact('zakats'));
+        $muzakkis = muzakkis::all();
+        return view ('muzakki.index', compact('muzakkis'));
     }
 
     /**
@@ -25,9 +25,8 @@ class ZakatController extends Controller
      */
     public function create()
     {
-        $zakatr = zakats::all();
-        return view ('zakat.create', compact('zakatr'));
-        
+        $muzakkir = muzakkis::all();
+        return view ('muzakki.create', compact('muzakkir'));
 
     }
 
@@ -40,16 +39,20 @@ class ZakatController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'id_zakat' => 'required',
-            'kategori_zakat' => 'required',
+            'nama_muzakki' => 'required',
+            'usia' => 'required',
+            'no_hp' => 'required',
+            'alamat' => 'required',
         ]);
 
-        $zakats = zakats::create([
-            'id_zakat' => $request->id_zakat,
-            'kategori_zakat' => $request->kategori_zakat,
+        $muzakkis = muzakkis::create([
+            'nama_muzakki' => $request->nama_muzakki,
+            'usia' => $request->usia,
+            'no_hp' => $request->no_hp,
+            'alamat' => $request->alamat,
         ]);
 
-        return redirect()->route('zakatp.index');
+        return redirect()->route('muzakkip.index');
     }
 
      /**
@@ -61,8 +64,8 @@ class ZakatController extends Controller
 
      public function show ($id)
      {
-         $zakats = zakats::oldest('id')->simplepaginate(1);
-         return view('zakat.detail', compact('zakats'));
+         $muzakkis = muzakkis::oldest('id')->simplepaginate(1);
+         return view('muzakki.detail', compact('muzakkis'));
      }
 
      /**
@@ -74,9 +77,9 @@ class ZakatController extends Controller
 
      public function edit ($id)
      {
-         $zakats = zakats::where('id', $id)->first();
-         return view('zakat.show', [
-             "zakats" => $zakats,
+         $muzakkis = muzakkis::where('id', $id)->first();
+         return view('muzakki.show', [
+             "muzakkis" => $muzakkis,
          ]);
      }
 
@@ -91,13 +94,15 @@ class ZakatController extends Controller
      public function update(Request $request, $id)
      {
          $this->validate($request, [
-             'id_zakat' => 'required',
-             'kategori_zakat' => 'required',
+             'nama_muzakki' => 'required',
+             'usia' => 'required',
+             'no_hp' => 'required',
+             'alamat' => 'required',
          ]);
 
-         $zakats = zakats::where('id', $id);
-         $zakats->update($request->except('_token','_method'));
-         return redirect()->route('zakatp.index');
+         $muzakkis = muzakkis::where('id', $id);
+         $muzakkis->update($request->except('_token','_method'));
+         return redirect()->route('muzakkip.index');
      }
 
     /**
@@ -109,9 +114,9 @@ class ZakatController extends Controller
 
     public function destroy ($id)
     {
-        $zakats = zakats::find($id);
-        $zakats->delete();
-        return to_route('zakatp.index')->with('hapus data berhasil>');
+        $muzakkis = muzakkis::find($id);
+        $muzakkis->delete();
+        return to_route('muzakkip.index')->with('hapus data berhasil>');
     }
 
 }

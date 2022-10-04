@@ -10,10 +10,10 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $muzakkis = muzakkis::count()->get();
-        $mustahiqs = mustahiqs::count()->get();
+        $muzakkis = muzakkis::count();
+        $mustahiqs = mustahiqs::count();
 
-        return view('muzakki.dashboard', [
+        return view('dashboard', [
             "mustahiqs" => $mustahiqs,
             "muzakkis" => $muzakkis,
         ]);

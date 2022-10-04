@@ -1,4 +1,4 @@
-<form method="POST" action="{{ route('login') }}">
+<form method="POST" action="{{ route('actionlogin') }}">
     @csrf
     <div class="base-login">
         <div class="kontener">
@@ -20,7 +20,8 @@
                 @enderror
                 <br />
                 <input id="password" type="password" placeholder="Password"form-control
-                class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                    class="form-control @error('password') is-invalid @enderror" name="password" required
+                    autocomplete="current-password">
 
                 @error('password')
                     <span class="invalid-feedback" role="alert">
@@ -36,10 +37,10 @@
                     @endif
 
                     @if (Route::has('register'))
-                                    <a class="btn btn-link" href="{{ route('register') }}">
-                                        <label style="color:#65FFDC;cursor:pointer">Register</label>
-                                    </a>
-                                @endif
+                        <a class="btn btn-link" href="{{ route('register') }}">
+                            <label style="color:#65FFDC;cursor:pointer">Register</label>
+                        </a>
+                    @endif
                 </div>
                 <div class="row mb-0">
                     <div class="col-md-8 offset-md-4">

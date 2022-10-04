@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\muzakkis;
 use Illuminate\Http\Request;
+use App\Models\pembayarans;
 use App\Models\zakats;
 
-class ZakatController extends Controller
+class PembayaranController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +16,8 @@ class ZakatController extends Controller
      */
     public function index()
     {
-        $zakats = zakats::all();
-        return view ('zakat.index', compact('zakats'));
+        $pembayarans = pembayarans::all();
+        return view ('pembayaran.index', compact('pembayarans'));
     }
 
     /**
@@ -25,9 +27,13 @@ class ZakatController extends Controller
      */
     public function create()
     {
-        $zakatr = zakats::all();
-        return view ('zakat.create', compact('zakatr'));
-        
+        $zakats = zakats::all();
+        $muzakkis = muzakkis::all();
+
+        return view('pembayaran.create', [
+            'zakats' => $zakats,
+            'muzakkis' => $muzakkis
+        ]);
 
     }
 
@@ -41,15 +47,19 @@ class ZakatController extends Controller
     {
         $this->validate($request, [
             'id_zakat' => 'required',
-            'kategori_zakat' => 'required',
+            'id_mustahiq' => 'required',
+            'jumlah' => 'required',
+            'metode_pembayaran' => 'required',
         ]);
 
-        $zakats = zakats::create([
+        $pembayarans = pembayarans::create([
             'id_zakat' => $request->id_zakat,
-            'kategori_zakat' => $request->kategori_zakat,
+            'id_mustahiq' => $request->id_mustahiq,
+            'jumlah' => $request->jumlah,
+            'metode_pembayaran' => $request->metode_pembayaran,
         ]);
 
-        return redirect()->route('zakatp.index');
+        return redirect()->route('mustahiqp.index');
     }
 
      /**
@@ -61,8 +71,8 @@ class ZakatController extends Controller
 
      public function show ($id)
      {
-         $zakats = zakats::oldest('id')->simplepaginate(1);
-         return view('zakat.detail', compact('zakats'));
+         $pembayarans = pembayarans::oldest('id')->simplepaginate(1);
+         return view('pembayaran.detail', compact('pembayarans'));
      }
 
      /**
@@ -74,9 +84,9 @@ class ZakatController extends Controller
 
      public function edit ($id)
      {
-         $zakats = zakats::where('id', $id)->first();
-         return view('zakat.show', [
-             "zakats" => $zakats,
+         $pembayarans = pembayarans::where('id', $id)->first();
+         return view('pembayaran.show', [
+             "pembayarans" => $pembayarans,
          ]);
      }
 
@@ -92,12 +102,14 @@ class ZakatController extends Controller
      {
          $this->validate($request, [
              'id_zakat' => 'required',
-             'kategori_zakat' => 'required',
+             'id_muzakki' => 'required',
+             'jumlah' => 'required',
+             'metode_pembayaran' => 'required',
          ]);
 
-         $zakats = zakats::where('id', $id);
-         $zakats->update($request->except('_token','_method'));
-         return redirect()->route('zakatp.index');
+         $pembayarans = pembayarans::where('id', $id);
+         $pembayarans->update($request->except('_token','_method'));
+         return redirect()->route('pembayaranp.index');
      }
 
     /**
@@ -109,9 +121,9 @@ class ZakatController extends Controller
 
     public function destroy ($id)
     {
-        $zakats = zakats::find($id);
-        $zakats->delete();
-        return to_route('zakatp.index')->with('hapus data berhasil>');
+        $pembayarans = pembayarans::find($id);
+        $pembayarans->delete();
+        return to_route('pembayaranp.index')->with('hapus data berhasil>');
     }
 
 }

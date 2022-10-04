@@ -4,7 +4,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MustahiqController;
+use App\Http\Controllers\MuzakkiController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ZakatController;
+use App\Http\Controllers\PembayaranController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,14 +34,14 @@ Route::post('actionlogout', [LoginController::class, 'actionlogout'])->name('act
 
 /* Muzakki */
 
-Route::get('update', [ZakatController::class, 'update'])->name('muzakki.');
-Route::resource('muzakki', ZakatController::class)->middleware('auth:sanctum');
+Route::get('update', [MuzakkiController::class, 'update'])->name('muzakki.');
+Route::resource('muzakki', MuzakkiController::class)->middleware('auth:sanctum');
 
-Route::resource('muzakkip', ZakatController::class);
+Route::resource('muzakkip', MuzakkiController::class);
 
 /* Dashboard */
 
-Route::get('dashboard', [ZakatController::class, 'dashboard'])->name('dashboard');
+Route::get('dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
 
 /* Mustahiq */
 
@@ -46,3 +49,11 @@ Route::resource('mustahiqp', MustahiqController::class);
 
 Route::get('update', [MustahiqController::class, 'update'])->name('mustahiq.');
 Route::resource('mustahiq', MustahiqController::class)->middleware('auth:sanctum');
+
+// zakat
+
+Route::resource('zakatp', ZakatController::class);
+
+// Pembayaran
+
+Route::resource('pembayaranp', PembayaranController::class);

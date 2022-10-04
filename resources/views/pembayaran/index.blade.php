@@ -8,32 +8,32 @@
 <div class="container">
     <div class="text-center">
         <br><br>
-        <h3>Table Mustahiq</h3>
+        <h3>Table Pembayaran</h3>
     </div>
         <br>
-        <a href="{{route('mustahiqp.create')}}" class="btn btn-success">+</a>
+        <a href="{{route('pembayaranp.create')}}" class="btn btn-success">+</a>
         <br><br>
         <table class="table table-striped ">
             <thead>
                 <tr>
-                    <th>NO</th>
-                    <th>Nama Mustahiq</th>
-                    <th>Usia</th>
-                    <th>Alamat</th>
-                    <th>Action</th>
+                    <th>ID Zakat</th>
+                    <th>Nama Muzakki</th>
+                    <th>Jumlah</th>
+                    <th>Metode Pembayaran</th>
                 </tr>
             </thead>
-            @foreach ($mustahiqs as $key=>$item)
+            @foreach ($pembayarans as $key=>$item)
             <tbody>
                 <tr>
                     <td>{{$item->id}}</td>
-                    <td>{{$item->nama_mustahiq}}</td>
-                    <td>{{$item->usia}}</td>
-                    <td>{{$item->alamat}}</td>
+                    <td>{{$item->id_zakat}}</td>
+                    <td>{{$item->id_muzakki}}</td>
+                    <td>{{$item->jumlah}}</td>
+                    <td>{{$item->metode_pembayaran}}</td>
                     <td>
 
 
-                        <form action="{{ route('mustahiqp.destroy', $item->id) }}" method="post">
+                        {{-- <form action="{{ route ('muzakkip.destroy', $muzakki->id) }} " method="post">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger">
@@ -41,10 +41,10 @@
                                 </button>
                               </form>
 
-                              <a href="{{ route('mustahiqp.show',$item->id)  }}" class="btn btn-primary bi bi-card-text"></a>
-                        <a href="{{ route('mustahiqp.edit', $item->id) }}"class="btn btn-warning">
+                              <a href="{{route('muzakkip.show', $muzakki->id)}}" class="btn btn-primary bi bi-card-text"></a>
+                        <a href="{{route ('muzakkip.edit', $muzakki->id)}}" class="btn btn-warning">
                                 <i class="fas fa-solid fa-pen"></i>
-                              </a>
+                              </a> --}}
                     </td>
                 </tr>
                 @endforeach

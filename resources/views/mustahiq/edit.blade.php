@@ -22,7 +22,7 @@
                         <input type="text" class="form-control" value="{{$item->alamat}}" name="alamat" >
                     </div>
                     <button type="submit" class="btn btn-success">Tambah</button>
-                    <a href="{{route('muzakkip.index')}}" class="btn btn-primary">Kembali</a>
+                    <a href="{{route('mustahiqp.index')}}" class="btn btn-primary">Kembali</a>
                 </form>
             </div>
         </div>

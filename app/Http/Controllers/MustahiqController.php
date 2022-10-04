@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\mustahiqs;
+use App\Models\muzakkis;
 
 class MustahiqController extends Controller
 {
@@ -49,7 +50,7 @@ class MustahiqController extends Controller
             'alamat' => $request->alamat,
         ]);
 
-        return redirect('mustahiqp.index');
+        return redirect()->route('mustahiqp.index');
     }
 
     /**
@@ -110,5 +111,7 @@ class MustahiqController extends Controller
         $mustahiqs->delete();
         return to_route('mustahiqp.index')->with('hapus data berhasil');
     }
+
+    
     
 }
