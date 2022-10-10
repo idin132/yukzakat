@@ -9,9 +9,9 @@
             <div class="form-login">
                 <h3 style="font-weight:bold">Login</h3>
                 <br />
-                <input id="email" type="email" placeholder="Username atau Email"
-                    class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}"
-                    required autocomplete="email" autofocus>
+                <input id="username" type="text" placeholder="Username atau Email"
+                    class="form-control @error('email') is-invalid @enderror" name="username" value="{{ old('username') }}"
+                    required autocomplete="username" autofocus>
 
                 @error('email')
                     <span class="invalid-feedback" role="alert">
