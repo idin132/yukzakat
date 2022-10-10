@@ -31,27 +31,27 @@ Route::post('actionlogout', [LoginController::class, 'actionlogout'])->name('act
 
 /* Muzakki */
 
-Route::get('update', [MuzakkiController::class, 'update'])->name('muzakki.');
+Route::get('update', [MuzakkiController::class, 'update'])->name('muzakki.')->middleware('auth:sanctum');
 Route::resource('muzakki', MuzakkiController::class)->middleware('auth:sanctum');
 
-Route::resource('muzakkip', MuzakkiController::class);
+Route::resource('muzakkip', MuzakkiController::class)->middleware('auth:sanctum');
 
 /* Dashboard */
 
-Route::get('/', [DashboardController::class, 'dashboard'])->name('dashboard');
+Route::get('/', [DashboardController::class, 'dashboard'])->name('dashboard')->middleware('auth:sanctum');
 
 /* Mustahiq */
 
-Route::resource('mustahiqp', MustahiqController::class);
+Route::resource('mustahiqp', MustahiqController::class)->middleware('auth:sanctum');
 
-Route::get('update', [MustahiqController::class, 'update'])->name('mustahiq.');
+Route::get('update', [MustahiqController::class, 'update'])->name('mustahiq.')->middleware('auth:sanctum');
 Route::resource('mustahiq', MustahiqController::class)->middleware('auth:sanctum');
 
 // zakat
 
-Route::get('update', [ZakatController::class], 'update')->name('zakat.');
-Route::resource('zakatp', ZakatController::class);
+Route::get('update', [ZakatController::class], 'update')->name('zakat.')->middleware('auth:sanctum');
+Route::resource('zakatp', ZakatController::class)->middleware('auth:sanctum');
 
 // Pembayaran
 
-Route::resource('pembayaranp', PembayaranController::class);
+Route::resource('pembayaranp', PembayaranController::class)->middleware('auth:sanctum');
