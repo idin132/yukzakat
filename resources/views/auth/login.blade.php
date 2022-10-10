@@ -9,7 +9,7 @@
             <div class="form-login">
                 <h3 style="font-weight:bold">Login</h3>
                 <br />
-                <input id="username" type="text" placeholder="Username atau Email"
+                <input id="username" type="text" placeholder="Username"
                     class="form-control @error('email') is-invalid @enderror" name="username" value="{{ old('username') }}"
                     required autocomplete="username" autofocus>
 
