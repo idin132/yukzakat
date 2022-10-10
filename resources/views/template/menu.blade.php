@@ -47,23 +47,6 @@
                 </p>
             </a>
         </li>
-        {{-- <li class="nav-item">
-        <a href="{{ route('pegawai.index')}}" class="nav-link">
-          <i class="nav-icon bi bi-people-fill"></i>
-          <p>
-           Data Pegawai
-          </p>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a href="{{ route('kartu.index')}}" class="nav-link">
-          <i class="nav-icon bi bi-card-text"></i>
-        <p>
-          Kartu Pelajar
-        </p>
-        </a>
-      </li>
-      --}}
 
     </ul>
 </nav>

@@ -19,17 +19,14 @@ use App\Http\Controllers\PembayaranController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+/* Home */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [HomeController::class, 'index'])->name('index')->middleware('auth:sanctum');
 
 /* Login */
 
-Route::get('/', [LoginController::class, 'login'])->name('login');
+Route::get('/login', [LoginController::class, 'login'])->name('login');
 Route::post('actionlogin', [LoginController::class, 'actionlogin'])->name('actionlogin');
-
-Route::get('home', [HomeController::class, 'index'])->name('index');
 Route::post('actionlogout', [LoginController::class, 'actionlogout'])->name('actionlogout');
 
 /* Muzakki */
@@ -41,7 +38,7 @@ Route::resource('muzakkip', MuzakkiController::class);
 
 /* Dashboard */
 
-Route::get('dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
+Route::get('/', [DashboardController::class, 'dashboard'])->name('dashboard');
 
 /* Mustahiq */
 
@@ -52,6 +49,7 @@ Route::resource('mustahiq', MustahiqController::class)->middleware('auth:sanctum
 
 // zakat
 
+Route::get('update', [ZakatController::class], 'update')->name('zakat.');
 Route::resource('zakatp', ZakatController::class);
 
 // Pembayaran

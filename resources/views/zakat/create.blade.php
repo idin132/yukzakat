@@ -23,7 +23,11 @@
                                     class="col-md-4 col-form-label text-md-end">{{ __('Kategori Zakat') }}</label>
 
                                 <div class="col-md-6">
-                                    <input type="text" class="form-control" name="kategori_zakat" required>
+                                    <select name="kategori_zakat" class="form-control">
+                                        <option value="Zakat Penghasilan">{{__('Zakat Penghasilan')}}</option>
+                                        <option value="Zakat Fitrah">{{__('Zakat Fitrah')}}</option>
+                                        <option value="Zakat Mal">{{__('Zakat Mal')}}</option>
+                                    </select>
                                 </div>
                             </div>
 

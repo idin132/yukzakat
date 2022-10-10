@@ -142,9 +142,13 @@
       </li>
 -->
       <li class="nav-item">
-        <a class="nav-link" data-widget="fullscreen" href="#" role="button">
-        <div class="container"> <br><br> <form action="{{url('actionlogout ')}}" method="post"> @csrf <button type="submit" class="btn btn-danger">Logout</button> </form> </div>
-        </a>
+        <div class="container">
+          <br><br>
+          <form action="{{url('actionlogout')}}" method="post">
+            @csrf
+            <button type="submit" class="btn btn-danger">Logout</button>
+          </form>
+        </div>
       </li>
       <!--Pengaturan widget harus dengan demo.js
       <li class="nav-item">
@@ -175,7 +179,7 @@
           <img src="img/logo_head_zakat.png"  class="brand-image img-circle elevation-3" alt="">
         </div>
        <div class="info">
-        <b>  <a style="text-decoration: none;" href="img/logo_head_zakat.png" class="d-block">YUK ZAKAT</a> </b>
+        <b>  <a style="text-decoration: none;" href="/" class="d-block">YUK ZAKAT</a> </b>
         </div>
       </div>
 
