@@ -23,5 +23,5 @@ Route::apiResource('/posts', App\Http\Controllers\Api\PostController::class);
 
 // Kategori
 
-Route::apiResource('/kategoris', App\Http\Controllers\Api\KategoriController::class);
+Route::apiResource('/kategori', App\Http\Controllers\Api\KategoriController::class);
 
