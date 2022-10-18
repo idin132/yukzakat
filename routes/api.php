@@ -20,3 +20,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 //posts
 Route::apiResource('/posts', App\Http\Controllers\Api\PostController::class);
+
+// Kategori
+
+Route::apiResource('/kategoris', App\Http\Controllers\Api\KategoriController::class);
+

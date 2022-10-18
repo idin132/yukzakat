@@ -48,7 +48,7 @@
             </a>
         </li>
         <li class="nav-item">
-            <a href="{{ route('pembayaranp.index') }}" class="nav-link">
+            <a href="{{ route('postp.index') }}" class="nav-link">
                 <i class="nav-icon bi bi-people-fill"></i>
                 <p>
                     Posts

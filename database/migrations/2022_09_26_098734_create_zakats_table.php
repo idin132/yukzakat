@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('id_zakat');
             $table->string('kategori_zakat');
+            $table->timestamps();
         });
     }
 
