@@ -11,7 +11,7 @@
         <h3>Laporan Zakat</h3>
     </div>
         <br>
-        <a href="{{route('mustahiqp.create')}}" class="btn btn-success">+</a>
+        <a href="{{route('mustahiq.create')}}" class="btn btn-success">+</a>
         <br><br>
         <table class="table table-striped ">
             <thead>
@@ -32,7 +32,7 @@
                     <td>
 
 
-                        <form action="{{ route('mustahiqp.destroy', $item->id) }}" method="post">
+                        <form action="{{ route('mustahiq.destroy', $item->id) }}" method="post">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger">
@@ -40,8 +40,8 @@
                                 </button>
                               </form>
 
-                              <a href="{{ route('mustahiqp.show',$item->id)  }}" class="btn btn-primary bi bi-card-text"></a>
-                        <a href="{{ route('mustahiqp.edit', $item->id) }}"class="btn btn-warning">
+                              <a href="{{ route('mustahiq.show',$item->id)  }}" class="btn btn-primary bi bi-card-text"></a>
+                        <a href="{{ route('mustahiq.edit', $item->id) }}"class="btn btn-warning">
                                 <i class="fas fa-solid fa-pen"></i>
                               </a>
                     </td>

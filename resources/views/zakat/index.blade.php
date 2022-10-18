@@ -11,7 +11,7 @@
         <h3>Table Zakat</h3>
     </div>
         <br>
-        <a href="{{route('zakatp.create')}}" class="btn btn-success">+</a>
+        <a href="{{route('zakat.create')}}" class="btn btn-success">+</a>
         <br><br>
         <table class="table table-striped ">
             <thead>
@@ -31,7 +31,7 @@
                     <td>
 
 
-                        <form action="{{ route('zakatp.destroy', $item->id) }}" method="post">
+                        <form action="{{ route('zakat.destroy', $item->id) }}" method="post">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger">
@@ -40,7 +40,7 @@
                           </form>
 
 
-                    <a href="{{ route('zakatp.edit', $item->id) }}"class="btn btn-warning">
+                    <a href="{{ route('zakat.edit', $item->id) }}"class="btn btn-warning">
                             <i class="fas fa-solid fa-pen"></i>
                           </a>
                     </td>

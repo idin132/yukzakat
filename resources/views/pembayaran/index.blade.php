@@ -11,7 +11,7 @@
         <h3>Table Pembayaran</h3>
     </div>
         <br>
-        <a href="{{route('pembayaranp.create')}}" class="btn btn-success">+</a>
+        <a href="{{route('pembayaran.create')}}" class="btn btn-success">+</a>
         <br><br>
         <table class="table table-striped ">
             <thead>

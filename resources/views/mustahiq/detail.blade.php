@@ -36,7 +36,7 @@
                     @endforeach
                     <br>
                     <div class="d-flex justify-content-center">
-                        <a href="{{ route('mustahiqp.index') }}" class="btn btn-success">Kembali</a>
+                        <a href="{{ route('mustahiq.index') }}" class="btn btn-success">Kembali</a>
                     </div>
                 </div>
             </div>

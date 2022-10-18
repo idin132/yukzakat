@@ -12,7 +12,7 @@
                 <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                     <div class="card-body">
 
-                        <form method="POST" action="{{ route('pembayaranp.store') }}">
+                        <form method="POST" action="{{ route('pembayaran.store') }}">
                             @csrf
 
                             <div class="row mb-3">

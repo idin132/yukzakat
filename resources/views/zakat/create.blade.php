@@ -6,7 +6,7 @@
             <div class="card" style="width: 40rem;">
                 <div class="card-header">
                     <div class="card-body">
-                        <form action="{{ route('zakatp.store') }}" method="post">
+                        <form action="{{ route('zakat.store') }}" method="post">
                             @csrf
 
                             <div class="form-group">
@@ -33,7 +33,7 @@
 
 
                             <button type="submit" class="btn btn-success">Tambah</button>
-                            <a href="{{ route('zakatp.index') }}" class="btn btn-primary">Kembali</a>
+                            <a href="{{ route('zakat.index') }}" class="btn btn-primary">Kembali</a>
                         </form>
                     </div>
                 </div>

@@ -6,7 +6,7 @@
     <div class="d-flex justify-content-center">
         <div class="card" style="width: 50rem;">
             <div class="card-body">
-                <form action="{{route('muzakkip.update', $muzakki->id)}}" method="post">
+                <form action="{{route('muzakki.update', $muzakki->id)}}" method="post">
                     @csrf
                     @method('PUT')
                     <div class="form-group">
@@ -26,7 +26,7 @@
                         <input type="text" class="form-control" value="{{$muzakki->alamat}}" name="alamat" >
                     </div>
                     <button type="submit" class="btn btn-success">Tambah</button>
-                    <a href="{{route('muzakkip.index')}}" class="btn btn-primary">Kembali</a>
+                    <a href="{{route('muzakki.index')}}" class="btn btn-primary">Kembali</a>
                 </form>
             </div>
         </div>

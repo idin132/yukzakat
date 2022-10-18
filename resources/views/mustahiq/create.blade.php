@@ -6,7 +6,7 @@
             <div class="card" style="width: 40rem;">
                 <div class="card-header">
                     <div class="card-body">
-                        <form action="{{ route('mustahiqp.store') }}" method="post">
+                        <form action="{{ route('mustahiq.store') }}" method="post">
                             @csrf
 
                             <div class="form-group">
@@ -38,7 +38,7 @@
 
 
                             <button type="submit" class="btn btn-success">Tambah</button>
-                            <a href="{{ route('mustahiqp.index') }}" class="btn btn-primary">Kembali</a>
+                            <a href="{{ route('mustahiq.index') }}" class="btn btn-primary">Kembali</a>
                         </form>
                     </div>
                 </div>

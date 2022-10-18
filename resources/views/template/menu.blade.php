@@ -15,7 +15,7 @@
             </a>
         </li>
         <li class="nav-item">
-            <a href="{{ route('muzakkip.index') }}" class="nav-link">
+            <a href="{{ route('muzakki.index') }}" class="nav-link">
                 <i class="nav-icon bi bi-people-fill"></i>
                 <p>
                     Muzakki
@@ -23,7 +23,7 @@
             </a>
         </li>
         <li class="nav-item">
-            <a href="{{ route('mustahiqp.index') }}" class="nav-link">
+            <a href="{{ route('mustahiq.index') }}" class="nav-link">
                 <i class="nav-icon bi bi-people-fill"></i>
                 <p>
                     Mustahiq
@@ -31,7 +31,7 @@
             </a>
         </li>
         <li class="nav-item">
-            <a href="{{ route('zakatp.index') }}" class="nav-link">
+            <a href="{{ route('zakat.index') }}" class="nav-link">
                 <i class="nav-icon bi bi-people-fill"></i>
                 <p>
                     Zakat
@@ -40,7 +40,7 @@
         </li>
         </li>
         <li class="nav-item">
-            <a href="{{ route('pembayaranp.index') }}" class="nav-link">
+            <a href="{{ route('pembayaran.index') }}" class="nav-link">
                 <i class="nav-icon bi bi-people-fill"></i>
                 <p>
                     Pembayaran
@@ -48,7 +48,7 @@
             </a>
         </li>
         <li class="nav-item">
-            <a href="{{ route('postp.index') }}" class="nav-link">
+            <a href="{{ route('post.index') }}" class="nav-link">
                 <i class="nav-icon bi bi-people-fill"></i>
                 <p>
                     Posts

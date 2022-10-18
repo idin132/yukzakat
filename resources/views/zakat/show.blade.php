@@ -14,7 +14,7 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <form action="{{ route('zakatp.update', $zakats->id) }}" method="POST">
+                        <form action="{{ route('zakat.update', $zakats->id) }}" method="POST">
                             @csrf
                             @method('PUT')
 
@@ -45,7 +45,7 @@
                                     <button type="submit" class="btn btn-primary">
                                         {{ __('Update') }}
                                     </button>
-                                    <a href="{{ route('zakatp.index') }}" class="btn btn-primary">Kembali</a>
+                                    <a href="{{ route('zakat.index') }}" class="btn btn-primary">Kembali</a>
 
                                 </div>
                             </div>

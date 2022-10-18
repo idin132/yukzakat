@@ -35,7 +35,7 @@ Route::post('actionlogout', [LoginController::class, 'actionlogout'])->name('act
 Route::get('update', [MuzakkiController::class, 'update'])->name('muzakki.')->middleware('auth:sanctum');
 Route::resource('muzakki', MuzakkiController::class)->middleware('auth:sanctum');
 
-Route::resource('muzakkip', MuzakkiController::class)->middleware('auth:sanctum');
+Route::resource('muzakki', MuzakkiController::class)->middleware('auth:sanctum');
 
 /* Dashboard */
 
@@ -43,7 +43,7 @@ Route::get('/', [DashboardController::class, 'dashboard'])->name('dashboard')->m
 
 /* Mustahiq */
 
-Route::resource('mustahiqp', MustahiqController::class)->middleware('auth:sanctum');
+Route::resource('mustahiq', MustahiqController::class)->middleware('auth:sanctum');
 
 Route::get('update', [MustahiqController::class, 'update'])->name('mustahiq.')->middleware('auth:sanctum');
 Route::resource('mustahiq', MustahiqController::class)->middleware('auth:sanctum');
@@ -51,12 +51,12 @@ Route::resource('mustahiq', MustahiqController::class)->middleware('auth:sanctum
 // zakat
 
 Route::get('update', [ZakatController::class], 'update')->name('zakat.')->middleware('auth:sanctum');
-Route::resource('zakatp', ZakatController::class)->middleware('auth:sanctum');
+Route::resource('zakat', ZakatController::class)->middleware('auth:sanctum');
 
 // Pembayaran
 
-Route::resource('pembayaranp', PembayaranController::class)->middleware('auth:sanctum');
+Route::resource('pembayaran', PembayaranController::class)->middleware('auth:sanctum');
 
 // posts
 
-Route::resource('postp', PostController::class)->middleware('auth:sanctum');
+Route::resource('post', PostController::class)->middleware('auth:sanctum');

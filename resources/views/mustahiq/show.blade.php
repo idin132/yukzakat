@@ -51,7 +51,7 @@
                                     <button type="submit" class="btn btn-primary">
                                         {{ __('Update') }}
                                     </button>
-                                    <a href="{{ route('mustahiqp.index') }}" class="btn btn-primary">Kembali</a>
+                                    <a href="{{ route('mustahiq.index') }}" class="btn btn-primary">Kembali</a>
 
                                 </div>
                             </div>

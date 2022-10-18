@@ -60,7 +60,7 @@
                                     <button type="submit" class="btn btn-primary">
                                         {{ __('Update') }}
                                     </button>
-                                    <a href="{{ route('muzakkip.index') }}" class="btn btn-primary">Kembali</a>
+                                    <a href="{{ route('muzakki.index') }}" class="btn btn-primary">Kembali</a>
 
                                 </div>
                             </div>

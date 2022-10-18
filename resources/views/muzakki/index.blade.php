@@ -33,7 +33,7 @@
                     <td>
 
 
-                        <form action="{{ route ('muzakkip.destroy', $muzakki->id) }} " method="post">
+                        <form action="{{ route ('muzakki.destroy', $muzakki->id) }} " method="post">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger">
@@ -41,8 +41,8 @@
                                 </button>
                               </form>
 
-                              <a href="{{route('muzakkip.show', $muzakki->id)}}" class="btn btn-primary bi bi-card-text"></a>
-                        <a href="{{route ('muzakkip.edit', $muzakki->id)}}" class="btn btn-warning">
+                              <a href="{{route('muzakki.show', $muzakki->id)}}" class="btn btn-primary bi bi-card-text"></a>
+                        <a href="{{route ('muzakki.edit', $muzakki->id)}}" class="btn btn-warning">
                                 <i class="fas fa-solid fa-pen"></i>
                               </a>
                     </td>
