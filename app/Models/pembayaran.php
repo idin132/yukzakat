@@ -20,7 +20,7 @@ class pembayaran extends Model
 
     public function zakat()
     {
-        return $this->hasOne(zakats::class, 'id', 'id_zakat');
+        return $this->hasOne(zakats::class, 'id', 'kategori_zakat');
         return $this->hasOne(muzakkis::class, 'id', 'id_muzakki');
     }
 }

@@ -16,14 +16,14 @@
                             @csrf
 
                             <div class="row mb-3">
-                                <label for="id_zakat"
-                                    class="col-md-4 col-form-label text-md-end">{{ __('ID Zakat') }}</label>
+                                <label for="nama_zakat"
+                                    class="col-md-4 col-form-label text-md-end">{{ __('Nama Zakat') }}</label>
 
                                 <div class="col-md-6">
-                                    <select name="id_zakat" id="id_zakat" class="form-control">
+                                    <select name="nama_zakat" class="form-control" required>
                                         <option>{{ __('--PILIH ZAKAT--') }}</option>
-                                        @foreach ($zakats as $item)
-                                            <option value="{{ $item->id }}">{{ $item->id_zakat }}</option>
+                                        @foreach ($zakat as $item)
+                                            <option value="{{ $item->id }}">{{ $item->kategori_zakat }}</option>
                                         @endforeach
                                     </select>
 
@@ -36,13 +36,13 @@
                                 </div>
                             </div>
                             <div class="row mb-3">
-                                <label for="id_muzakki"
+                                <label for="nama_muzakki"
                                     class="col-md-4 col-form-label text-md-end">{{ __('Nama Muzakki') }}</label>
 
                                 <div class="col-md-6">
-                                    <select name="id_muzakki" id="id_muzakki" class="form-control">
+                                    <select name="nama_muzakki"  class="form-control" required>
                                         <option>{{ __('--PILIH MUZAKKI--') }}</option>
-                                        @foreach ($muzakkis as $item)
+                                        @foreach ($muzakki as $item)
                                             <option value="{{ $item->id }}">{{ $item->nama_muzakki }}</option>
                                         @endforeach
                                     </select>
@@ -61,10 +61,10 @@
 
                                 <div class="col-md-6">
                                     <input id="jumlah" type="text"
-                                        class="form-control @error('nama_mustahiq') is-invalid @enderror" name="jumlah"
+                                        class="form-control @error('jumlahs') is-invalid @enderror" name="jumlah"
                                         required>
 
-                                    @error('nama_mustahiq')
+                                    @error('jumlahs')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>

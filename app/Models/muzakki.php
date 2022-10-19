@@ -8,7 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class muzakki extends Model
 {
     use HasFactory;
-    public $timestamps = false;
+
+    /**
+     * fillable
+     *
+     * @var array
+     */
     protected $table = "muzakkis";
     protected $fillable = [
         'nama_muzakki', 'usia','no_hp','alamat',

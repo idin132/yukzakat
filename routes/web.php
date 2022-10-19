@@ -2,7 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
-use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MustahiqController;
 use App\Http\Controllers\MuzakkiController;
 use App\Http\Controllers\DashboardController;

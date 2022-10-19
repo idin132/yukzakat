@@ -64,7 +64,7 @@ class MuzakkiController extends Controller
 
      public function show ($id)
      {
-         $muzakkis = muzakki::oldest('id')->simplepaginate(1);
+         $muzakki = muzakki::oldest('id')->simplepaginate(1);
          return view('muzakki.detail', compact('muzakkis'));
      }
 
@@ -77,9 +77,9 @@ class MuzakkiController extends Controller
 
      public function edit ($id)
      {
-         $muzakkis = muzakki::where('id', $id)->first();
+         $muzakki = muzakki::where('id', $id)->first();
          return view('muzakki.show', [
-             "muzakkis" => $muzakkis,
+             "muzakkis" => $muzakki,
          ]);
      }
 
@@ -100,8 +100,8 @@ class MuzakkiController extends Controller
              'alamat' => 'required',
          ]);
 
-         $muzakkis = muzakki::where('id', $id);
-         $muzakkis->update($request->except('_token','_method'));
+         $muzakki = muzakki::where('id', $id);
+         $muzakki->update($request->except('_token','_method'));
          return redirect()->route('muzakki.index');
      }
 
@@ -114,8 +114,8 @@ class MuzakkiController extends Controller
 
     public function destroy ($id)
     {
-        $muzakkis = muzakki::find($id);
-        $muzakkis->delete();
+        $muzakki = muzakki::find($id);
+        $muzakki->delete();
         return to_route('muzakki.index')->with('hapus data berhasil>');
     }
 

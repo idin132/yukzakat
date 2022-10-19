@@ -22,6 +22,11 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::apiResource('/posts', App\Http\Controllers\Api\PostController::class);
 
 // Kategori
-
 Route::apiResource('/kategori', App\Http\Controllers\Api\KategoriController::class);
 
+// Muzakki
+Route::apiResource('/muzakki', App\Http\Controllers\Api\MuzakkiController::class);
+
+// Pembayaran
+
+Route::apiResource('/pembayaran', App\Http\Controllers\Api\PembayaranController::class);

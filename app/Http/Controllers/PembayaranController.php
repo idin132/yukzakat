@@ -27,12 +27,12 @@ class PembayaranController extends Controller
      */
     public function create()
     {
-        $zakats = zakat::all();
-        $muzakkis = muzakki::all();
+        $zakat = zakat::all();
+        $muzakki = muzakki::all();
 
         return view('pembayaran.create', [
-            'zakats' => $zakats,
-            'muzakkis' => $muzakkis
+            'zakat' => $zakat,
+            'muzakki' => $muzakki,
         ]);
 
     }
@@ -53,8 +53,8 @@ class PembayaranController extends Controller
         ]);
 
         $pembayarans = pembayaran::create([
-            'nama_zakat' => $request->id_zakat,
-            'nama_mustahiq' => $request->id_mustahiq,
+            'nama_zakat' => $request->nama_zakat,
+            'nama_muzakki' => $request->nama_muzakki,
             'jumlah' => $request->jumlah,
             'metode_pembayaran' => $request->metode_pembayaran,
         ]);

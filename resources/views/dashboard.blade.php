@@ -50,6 +50,36 @@
                                     </div>
                                 </div>
 
+                                <div class="col-md-6 mb-3">
+                                    <div class="card text-white bg-info">
+                                        <div class="card-header">
+                                            <div class="bi bi-people-fill">
+                                                Penerimaan
+                                            </div>
+                                        </div>
+                                        <div class="card-body">
+                                            {{ $penerimaan }}
+                                            <h5 class="card-title"></h5>
+                                            <p class="card-text justify-content-end"></p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6 mb-3">
+                                    <div class="card text-white bg-success">
+                                        <div class="card-header">
+                                            <div class="bi bi-people-fill">
+                                                Pembayaran
+                                            </div>
+                                        </div>
+                                        <div class="card-body">
+                                            {{ $pembayaran }}
+                                            <h5 class="card-title"></h5>
+                                            <p class="card-text justify-content-end"></p>
+                                        </div>
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
                     </div>
