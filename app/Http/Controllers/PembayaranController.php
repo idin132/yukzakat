@@ -46,15 +46,15 @@ class PembayaranController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'id_zakat' => 'required',
-            'id_mustahiq' => 'required',
+            'nama_zakat' => 'required',
+            'nama_mustahiq' => 'required',
             'jumlah' => 'required',
             'metode_pembayaran' => 'required',
         ]);
 
         $pembayarans = pembayaran::create([
-            'id_zakat' => $request->id_zakat,
-            'id_mustahiq' => $request->id_mustahiq,
+            'nama_zakat' => $request->id_zakat,
+            'nama_mustahiq' => $request->id_mustahiq,
             'jumlah' => $request->jumlah,
             'metode_pembayaran' => $request->metode_pembayaran,
         ]);
@@ -101,8 +101,8 @@ class PembayaranController extends Controller
      public function update(Request $request, $id)
      {
          $this->validate($request, [
-             'id_zakat' => 'required',
-             'id_muzakki' => 'required',
+             'nama_zakat' => 'required',
+             'nama_muzakki' => 'required',
              'jumlah' => 'required',
              'metode_pembayaran' => 'required',
          ]);

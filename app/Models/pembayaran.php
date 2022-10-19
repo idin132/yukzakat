@@ -11,8 +11,8 @@ class pembayaran extends Model
     public $timestamps = false;
     protected $table = "pembayarans";
     protected $fillable = [
-        'id_zakat', 
-        'id_muzakki',
+        'nama_zakat', 
+        'nama_muzakki',
         'jumlah',
         'metode_pembayaran',
 

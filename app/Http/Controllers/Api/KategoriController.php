@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Models\zakats;
+use App\Models\zakat;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\KategoriResource;
@@ -19,7 +19,7 @@ class KategoriController extends Controller
     public function index()
     {
         //get posts
-        $kategoris = zakats::latest()->paginate(5);
+        $kategoris = zakat::latest()->paginate(5);
 
         //return collection of posts as a resource
         return new KategoriResource(true, 'List Data Posts', $kategoris);
@@ -35,7 +35,6 @@ class KategoriController extends Controller
     {
         //define validation rules
         $validator = Validator::make($request->all(), [
-            'id_zakat'     => 'required',
             'kategori_zakat'     => 'required',
         ]);
 
@@ -44,8 +43,7 @@ class KategoriController extends Controller
             return response()->json($validator->errors(), 422);
         }
         //create post
-        $kategori = zakats::create([
-            'id_zakat'     => $request->id_zakat,
+        $kategori = zakat::create([
             'kategori_zakat'     => $request->kategori_zakat,
         ]);
 
@@ -54,17 +52,16 @@ class KategoriController extends Controller
         
     }
 
-    public function show(zakats $kategori)
+    public function show(zakat $kategori)
     {
         //return single post as a resource
         return new KategoriResource(true, 'Data Post Ditemukan!', $kategori);
     }
 
-    public function update(Request $request, zakats $kategori)
+    public function update(Request $request, zakat $kategori)
     {
         //define validation rules
         $validator = Validator::make($request->all(), [
-            'id_zakat'     => 'required',
             'kategori_zakat'   => 'required',
         ]);
 
@@ -78,7 +75,6 @@ class KategoriController extends Controller
 
             //update
             $kategori->update([
-                'id_zakat'     => $request->id_zakat,
                 'kategori_zakat'   => $request->kategori_zakat,
             ]);
         }

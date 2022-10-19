@@ -21,9 +21,6 @@ use App\Http\Controllers\PenerimaanController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-/* Home */
-
-Route::get('/', [HomeController::class, 'index'])->name('index')->middleware('auth:sanctum');
 
 /* Login */
 

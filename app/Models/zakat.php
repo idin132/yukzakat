@@ -16,7 +16,7 @@ class zakat extends Model
      */
     protected $table = "zakats";
     protected $fillable = [
-        'id_zakat', 'kategori_zakat',
+        'kategori_zakat',
 
     ];
 }
