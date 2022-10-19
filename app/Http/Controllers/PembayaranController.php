@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\muzakkis;
+use App\Models\muzakki;
 use Illuminate\Http\Request;
-use App\Models\pembayarans;
-use App\Models\zakats;
+use App\Models\pembayaran;
+use App\Models\zakat;
 
 class PembayaranController extends Controller
 {
@@ -16,7 +16,7 @@ class PembayaranController extends Controller
      */
     public function index()
     {
-        $pembayarans = pembayarans::all();
+        $pembayarans = pembayaran::all();
         return view ('pembayaran.index', compact('pembayarans'));
     }
 
@@ -27,8 +27,8 @@ class PembayaranController extends Controller
      */
     public function create()
     {
-        $zakats = zakats::all();
-        $muzakkis = muzakkis::all();
+        $zakats = zakat::all();
+        $muzakkis = muzakki::all();
 
         return view('pembayaran.create', [
             'zakats' => $zakats,
@@ -52,14 +52,14 @@ class PembayaranController extends Controller
             'metode_pembayaran' => 'required',
         ]);
 
-        $pembayarans = pembayarans::create([
+        $pembayarans = pembayaran::create([
             'id_zakat' => $request->id_zakat,
             'id_mustahiq' => $request->id_mustahiq,
             'jumlah' => $request->jumlah,
             'metode_pembayaran' => $request->metode_pembayaran,
         ]);
 
-        return redirect()->route('mustahiqp.index');
+        return redirect()->route('mustahiq.index');
     }
 
      /**
@@ -71,7 +71,7 @@ class PembayaranController extends Controller
 
      public function show ($id)
      {
-         $pembayarans = pembayarans::oldest('id')->simplepaginate(1);
+         $pembayarans = pembayaran::oldest('id')->simplepaginate(1);
          return view('pembayaran.detail', compact('pembayarans'));
      }
 
@@ -84,7 +84,7 @@ class PembayaranController extends Controller
 
      public function edit ($id)
      {
-         $pembayarans = pembayarans::where('id', $id)->first();
+         $pembayarans = pembayaran::where('id', $id)->first();
          return view('pembayaran.show', [
              "pembayarans" => $pembayarans,
          ]);
@@ -107,7 +107,7 @@ class PembayaranController extends Controller
              'metode_pembayaran' => 'required',
          ]);
 
-         $pembayarans = pembayarans::where('id', $id);
+         $pembayarans = pembayaran::where('id', $id);
          $pembayarans->update($request->except('_token','_method'));
          return redirect()->route('pembayaranp.index');
      }
@@ -121,7 +121,7 @@ class PembayaranController extends Controller
 
     public function destroy ($id)
     {
-        $pembayarans = pembayarans::find($id);
+        $pembayarans = pembayaran::find($id);
         $pembayarans->delete();
         return to_route('pembayaranp.index')->with('hapus data berhasil>');
     }

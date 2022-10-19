@@ -5,18 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class zakats extends Model
+class penerimaan extends Model
 {
     use HasFactory;
-
-     /**
-     * fillable
-     *
-     * @var array
-     */
-    protected $table = "zakats";
+    public $timestamps = false;
+    protected $table = "penerimaans";
     protected $fillable = [
-        'id_zakat', 'kategori_zakat',
+        'nama',
+        'alamat',
+        'jumlah',
+        'bukti',
 
     ];
 }

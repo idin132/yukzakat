@@ -9,6 +9,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ZakatController;
 use App\Http\Controllers\PembayaranController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\PenerimaanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,8 +36,6 @@ Route::post('actionlogout', [LoginController::class, 'actionlogout'])->name('act
 Route::get('update', [MuzakkiController::class, 'update'])->name('muzakki.')->middleware('auth:sanctum');
 Route::resource('muzakki', MuzakkiController::class)->middleware('auth:sanctum');
 
-Route::resource('muzakki', MuzakkiController::class)->middleware('auth:sanctum');
-
 /* Dashboard */
 
 Route::get('/', [DashboardController::class, 'dashboard'])->name('dashboard')->middleware('auth:sanctum');
@@ -57,6 +56,6 @@ Route::resource('zakat', ZakatController::class)->middleware('auth:sanctum');
 
 Route::resource('pembayaran', PembayaranController::class)->middleware('auth:sanctum');
 
-// posts
+// penerimaan
 
-Route::resource('post', PostController::class)->middleware('auth:sanctum');
+Route::resource('penerimaan', PenerimaanController::class)->middleware('auth:sanctum');

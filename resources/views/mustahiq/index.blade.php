@@ -41,7 +41,7 @@
                                 </button>
                               </form>
 
-                              <a href="{{ route('mustahiq.show',$item->id)  }}" class="btn btn-primary bi bi-card-text"></a>
+                              <a href="{{ route('mustahiq.show',$item->id)  }}" class="btn btn-info bi bi-send"></a>
                         <a href="{{ route('mustahiq.edit', $item->id) }}"class="btn btn-warning">
                                 <i class="fas fa-solid fa-pen"></i>
                               </a>

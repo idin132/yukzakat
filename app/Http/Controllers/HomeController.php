@@ -3,15 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\muzakkis;
-use App\Models\mustahiqs;
+use App\Models\muzakki;
+use App\Models\mustahiq;
 
 class HomeController extends Controller
 {
     public function index()
     {
-        $muzakkis = muzakkis::count();
-        $mustahiqs = mustahiqs::count();
+        $muzakkis = muzakki::count();
+        $mustahiqs = mustahiq::count();
 
         return view('dashboard', [
             "mustahiqs" => $mustahiqs,

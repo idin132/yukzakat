@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\mustahiqs;
-use App\Models\muzakkis;
+use App\Models\mustahiq;
+use App\Models\muzakki;
 
 class MustahiqController extends Controller
 {
@@ -15,7 +15,7 @@ class MustahiqController extends Controller
      */
     public function index ()
     {
-        $mustahiqs = mustahiqs::all();
+        $mustahiqs = mustahiq::all();
         return view('mustahiq.index', compact('mustahiqs'));
     }
 
@@ -26,7 +26,7 @@ class MustahiqController extends Controller
      */
     public function create ()
     {
-        $mustahiqr = mustahiqs::all();
+        $mustahiqr = mustahiq::all();
         return view('mustahiq.create', compact('mustahiqr'));
     }
 
@@ -44,13 +44,13 @@ class MustahiqController extends Controller
             'alamat' => 'required',
         ]);
 
-        $mustahiqs = mustahiqs::create([
+        $mustahiqs = mustahiq::create([
             'nama_mustahiq' => $request->nama_mustahiq,
             'usia' => $request->usia,
             'alamat' => $request->alamat,
         ]);
 
-        return redirect()->route('mustahiqp.index');
+        return redirect()->route('mustahiq.index');
     }
 
     /**
@@ -61,7 +61,7 @@ class MustahiqController extends Controller
      */
     public function show ($id)
     {
-        $mustahiqs = mustahiqs::oldest('id')->simplepaginate(1);
+        $mustahiqs = mustahiq::oldest('id')->simplepaginate(1);
         return view('mustahiq.detail', compact('mustahiqs'));
     }
 
@@ -73,7 +73,7 @@ class MustahiqController extends Controller
      */
     public function edit ($id)
     {
-        $mustahiqs = mustahiqs::where('id', $id)->first();
+        $mustahiqs = mustahiq::where('id', $id)->first();
         return view('mustahiq.show', [
             "mustahiqs" => $mustahiqs,
         ]);
@@ -94,9 +94,9 @@ class MustahiqController extends Controller
             'alamat' => 'required',
         ]);
 
-        $mustahiqs = mustahiqs::where('id', $id);
+        $mustahiqs = mustahiq::where('id', $id);
         $mustahiqs->update($request->except('_token','_method'));
-        return redirect()->route('mustahiqp.index');
+        return redirect()->route('mustahiq.index');
     }
 
     /**
@@ -107,9 +107,9 @@ class MustahiqController extends Controller
      */
     public function destroy ($id)
     {
-        $mustahiqs = mustahiqs::find($id);
+        $mustahiqs = mustahiq::find($id);
         $mustahiqs->delete();
-        return to_route('mustahiqp.index')->with('hapus data berhasil');
+        return to_route('mustahiq.index')->with('hapus data berhasil');
     }
 
     

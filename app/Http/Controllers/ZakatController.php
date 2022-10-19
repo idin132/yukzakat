@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\zakats;
+use App\Models\zakat;
 
 class ZakatController extends Controller
 {
@@ -14,7 +14,7 @@ class ZakatController extends Controller
      */
     public function index()
     {
-        $zakats = zakats::all();
+        $zakats = zakat::all();
         return view ('zakat.index', compact('zakats'));
     }
 
@@ -25,7 +25,7 @@ class ZakatController extends Controller
      */
     public function create()
     {
-        $zakatr = zakats::all();
+        $zakatr = zakat::all();
         return view ('zakat.create', compact('zakatr'));
         
 
@@ -44,12 +44,12 @@ class ZakatController extends Controller
             'kategori_zakat' => 'required',
         ]);
 
-        $zakats = zakats::create([
+        $zakats = zakat::create([
             'id_zakat' => $request->id_zakat,
             'kategori_zakat' => $request->kategori_zakat,
         ]);
 
-        return redirect()->route('zakatp.index');
+        return redirect()->route('zakat.index');
     }
 
      /**
@@ -61,7 +61,7 @@ class ZakatController extends Controller
 
      public function show ($id)
      {
-         $zakats = zakats::oldest('id')->simplepaginate(1);
+         $zakats = zakat::oldest('id')->simplepaginate(1);
          return view('zakat.detail', compact('zakats'));
      }
 
@@ -74,7 +74,7 @@ class ZakatController extends Controller
 
      public function edit ($id)
      {
-         $zakats = zakats::where('id', $id)->first();
+         $zakats = zakat::where('id', $id)->first();
          return view('zakat.show', [
              "zakats" => $zakats,
          ]);
@@ -95,9 +95,9 @@ class ZakatController extends Controller
              'kategori_zakat' => 'required',
          ]);
 
-         $zakats = zakats::where('id', $id);
+         $zakats = zakat::where('id', $id);
          $zakats->update($request->except('_token','_method'));
-         return redirect()->route('zakatp.index');
+         return redirect()->route('zakat.index');
      }
 
     /**
@@ -109,9 +109,9 @@ class ZakatController extends Controller
 
     public function destroy ($id)
     {
-        $zakats = zakats::find($id);
+        $zakats = zakat::find($id);
         $zakats->delete();
-        return to_route('zakatp.index')->with('hapus data berhasil>');
+        return to_route('zakat.index')->with('hapus data berhasil>');
     }
 
 }

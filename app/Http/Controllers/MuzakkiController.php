@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\muzakkis;
+use App\Models\muzakki;
 
 class MuzakkiController extends Controller
 {
@@ -14,7 +14,7 @@ class MuzakkiController extends Controller
      */
     public function index()
     {
-        $muzakkis = muzakkis::all();
+        $muzakkis = muzakki::all();
         return view ('muzakki.index', compact('muzakkis'));
     }
 
@@ -25,8 +25,8 @@ class MuzakkiController extends Controller
      */
     public function create()
     {
-        $muzakkir = muzakkis::all();
-        return view ('muzakki.create', compact('muzakkir'));
+        $muzakki = muzakki::all();
+        return view ('muzakki.create', compact('muzakki'));
 
     }
 
@@ -45,14 +45,14 @@ class MuzakkiController extends Controller
             'alamat' => 'required',
         ]);
 
-        $muzakkis = muzakkis::create([
+        $muzakkis = muzakki::create([
             'nama_muzakki' => $request->nama_muzakki,
             'usia' => $request->usia,
             'no_hp' => $request->no_hp,
             'alamat' => $request->alamat,
         ]);
 
-        return redirect()->route('muzakkip.index');
+        return redirect()->route('muzakki.index');
     }
 
      /**
@@ -64,7 +64,7 @@ class MuzakkiController extends Controller
 
      public function show ($id)
      {
-         $muzakkis = muzakkis::oldest('id')->simplepaginate(1);
+         $muzakkis = muzakki::oldest('id')->simplepaginate(1);
          return view('muzakki.detail', compact('muzakkis'));
      }
 
@@ -77,7 +77,7 @@ class MuzakkiController extends Controller
 
      public function edit ($id)
      {
-         $muzakkis = muzakkis::where('id', $id)->first();
+         $muzakkis = muzakki::where('id', $id)->first();
          return view('muzakki.show', [
              "muzakkis" => $muzakkis,
          ]);
@@ -100,9 +100,9 @@ class MuzakkiController extends Controller
              'alamat' => 'required',
          ]);
 
-         $muzakkis = muzakkis::where('id', $id);
+         $muzakkis = muzakki::where('id', $id);
          $muzakkis->update($request->except('_token','_method'));
-         return redirect()->route('muzakkip.index');
+         return redirect()->route('muzakki.index');
      }
 
     /**
@@ -114,9 +114,9 @@ class MuzakkiController extends Controller
 
     public function destroy ($id)
     {
-        $muzakkis = muzakkis::find($id);
+        $muzakkis = muzakki::find($id);
         $muzakkis->delete();
-        return to_route('muzakkip.index')->with('hapus data berhasil>');
+        return to_route('muzakki.index')->with('hapus data berhasil>');
     }
 
 }

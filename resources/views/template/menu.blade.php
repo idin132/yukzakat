@@ -16,7 +16,7 @@
         </li>
         <li class="nav-item">
             <a href="{{ route('muzakki.index') }}" class="nav-link">
-                <i class="nav-icon bi bi-people-fill"></i>
+                <i class="bi bi-person"></i>
                 <p>
                     Muzakki
                 </p>
@@ -24,7 +24,7 @@
         </li>
         <li class="nav-item">
             <a href="{{ route('mustahiq.index') }}" class="nav-link">
-                <i class="nav-icon bi bi-people-fill"></i>
+                <i class="bi bi-person"></i>
                 <p>
                     Mustahiq
                 </p>
@@ -32,7 +32,7 @@
         </li>
         <li class="nav-item">
             <a href="{{ route('zakat.index') }}" class="nav-link">
-                <i class="nav-icon bi bi-people-fill"></i>
+                <i class="bi bi-wallet"></i>
                 <p>
                     Zakat
                 </p>
@@ -41,17 +41,17 @@
         </li>
         <li class="nav-item">
             <a href="{{ route('pembayaran.index') }}" class="nav-link">
-                <i class="nav-icon bi bi-people-fill"></i>
+                <i class="bi bi-cash-coin"></i>
                 <p>
                     Pembayaran
                 </p>
             </a>
         </li>
         <li class="nav-item">
-            <a href="{{ route('post.index') }}" class="nav-link">
-                <i class="nav-icon bi bi-people-fill"></i>
+            <a href="{{ route('penerimaan.index') }}" class="nav-link">
+                <i class="bi bi-cloud-arrow-down"></i>
                 <p>
-                    Posts
+                    Penerimaan
                 </p>
             </a>
         </li>

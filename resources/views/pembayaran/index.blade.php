@@ -16,6 +16,7 @@
         <table class="table table-striped ">
             <thead>
                 <tr>
+                    <th>No</th>
                     <th>ID Zakat</th>
                     <th>Nama Muzakki</th>
                     <th>Jumlah</th>
