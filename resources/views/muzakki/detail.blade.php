@@ -15,7 +15,7 @@
                     </div>
                 </div>
                 <div class="card-body">
-                    @foreach ($muzakkis as $item)
+                    @foreach ($muzakki as $item)
                         <table class="table">
                             <tr>
                                 <td>Nama Muzakki</td>
@@ -58,7 +58,7 @@
         </div>
     </div>
     <div class="d-flex justify-content-center">
-        {{ $muzakkis->links() }}
+        {{ $muzakki->links() }}
         <br>
     </div>
     <br><br>

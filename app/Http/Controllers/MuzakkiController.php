@@ -65,7 +65,7 @@ class MuzakkiController extends Controller
      public function show ($id)
      {
          $muzakki = muzakki::oldest('id')->simplepaginate(1);
-         return view('muzakki.detail', compact('muzakkis'));
+         return view('muzakki.detail', compact('muzakki'));
      }
 
      /**

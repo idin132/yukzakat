@@ -7,8 +7,8 @@ use App\Http\Controllers\MuzakkiController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ZakatController;
 use App\Http\Controllers\PembayaranController;
-use App\Http\Controllers\PostController;
 use App\Http\Controllers\PenerimaanController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -55,3 +55,8 @@ Route::resource('pembayaran', PembayaranController::class)->middleware('auth:san
 // penerimaan
 
 Route::resource('penerimaan', PenerimaanController::class)->middleware('auth:sanctum');
+
+
+
+//user
+Route::resource('user', UserController::class)->middleware('auth:sanctum');

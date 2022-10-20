@@ -35,12 +35,6 @@
                             <label style="color:#65FFDC;cursor:pointer;">Lupa Password</label>
                         </a>
                     @endif
-
-                    @if (Route::has('register'))
-                        <a class="btn btn-link" href="{{ route('register') }}">
-                            <label style="color:#65FFDC;cursor:pointer">Register</label>
-                        </a>
-                    @endif
                 </div>
                 <div class="row mb-0">
                     <div class="col-md-8 offset-md-4">

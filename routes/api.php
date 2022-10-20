@@ -2,6 +2,8 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Validator;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -25,8 +27,11 @@ Route::apiResource('/posts', App\Http\Controllers\Api\PostController::class);
 Route::apiResource('/kategori', App\Http\Controllers\Api\KategoriController::class);
 
 // Muzakki
-Route::apiResource('/muzakki', App\Http\Controllers\Api\MuzakkiController::class);
+Route::apiResource('/muzakki', App\Http\Controllers\Api\MuzakkiController::class)->middleware('auth:sanctum');
 
 // Pembayaran
 
 Route::apiResource('/pembayaran', App\Http\Controllers\Api\PembayaranController::class);
+
+//Count
+Route::apiResource('/count', App\Http\Controllers\Api\CountController::class);
