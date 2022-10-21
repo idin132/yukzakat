@@ -35,3 +35,29 @@ Route::apiResource('/pembayaran', App\Http\Controllers\Api\PembayaranController:
 
 //Count
 Route::apiResource('/count', App\Http\Controllers\Api\CountController::class);
+
+// register
+/**
+ * route "/register"
+ * @method "POST"
+ */
+Route::post('/register', App\Http\Controllers\Api\RegisterController::class)->name('register');
+
+/**
+ * route "/login"
+ * @method "POST"
+ */
+Route::post('/login', App\Http\Controllers\Api\LoginController::class)->name('login');
+
+/**
+ * route "/user"
+ * @method "GET"
+ */
+Route::middleware('auth:api')->get('/user', function (Request $request) {
+    return $request->user();
+});
+
+Route::post('/logout', App\Http\Controllers\Api\LogoutController::class)->name('logout');
+
+
+
