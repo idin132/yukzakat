@@ -37,7 +37,7 @@ class RegisterController extends Controller
             'name'      => $request->name,
             'email'     => $request->email,
             'no_hp'     => $request->no_hp,
-            'alamat'     => $request->alamat,
+            'alamat'    => $request->alamat,
             'username'  => $request->username,
             'password'  => bcrypt($request->password)
         ]);
