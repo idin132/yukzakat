@@ -9,7 +9,7 @@ class penerimaan extends Model
 {
     use HasFactory;
     public $timestamps = false;
-    protected $table = "penerimaans";
+    protected $table = "penerimaan";
     protected $fillable = [
         'nama',
         'alamat',

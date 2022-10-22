@@ -14,7 +14,7 @@ class zakat extends Model
      *
      * @var array
      */
-    protected $table = "zakats";
+    protected $table = "zakat";
     protected $fillable = [
         'kategori_zakat',
 

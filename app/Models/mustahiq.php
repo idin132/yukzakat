@@ -9,7 +9,7 @@ class mustahiq extends Model
 {
     use HasFactory;
     public $timestamps = false;
-    protected $table = "mustahiqs";
+    protected $table = "mustahiq";
     protected $fillable = [
         'nama_mustahiq', 'usia','alamat',
 

@@ -14,7 +14,7 @@ class muzakki extends Model
      *
      * @var array
      */
-    protected $table = "muzakkis";
+    protected $table = "muzakki";
     protected $fillable = [
         'nama_muzakki', 'usia','no_hp','alamat',
 
