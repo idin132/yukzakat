@@ -17,4 +17,4 @@ lalu tambahkan file .env di dalam folder project (copy lalu rename file .env.exa
 Untuk menjalankan API Logout, wajib menambah header seperti dibawah
 
 Header : Authorization
-Value : Bearer <Token dari login>
+Value : Bearer "Token dari login"
