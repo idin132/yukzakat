@@ -31,7 +31,7 @@
                     <td>{{$item->nama}}</td>
                     <td>{{$item->alamat}}</td>
                     <td>{{$item->jumlah}}</td>
-                    <td><img src="{{ url('storage/foto/'.$item->bukti) }}" width="120px" height="120px" ></td>
+                    <td>@if($item->bukti == null) - @else <a href="{{ url('storage/foto/'.$item->bukti) }}" target="_blank" class="btn btn-dark">View</a> @endif</td>
                     <td>
 
 

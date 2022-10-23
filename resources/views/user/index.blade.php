@@ -22,6 +22,7 @@
                     <th>Nomor Handphone</th>
                     <th>Alamat</th>
                     <th>Username</th>
+                    <th>Role</th>
                     <th>Action</th>
                 </tr>
             </thead>
@@ -34,6 +35,7 @@
                     <td>{{$item->no_hp}}</td>
                     <td>{{$item->alamat}}</td>
                     <td>{{$item->username}}</td>
+                    <td>{{$item->role}}</td>
                     <td>
 
 

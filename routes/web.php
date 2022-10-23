@@ -27,11 +27,9 @@ Route::get('/login', [LoginController::class, 'login'])->name('login');
 Route::post('actionlogin', [LoginController::class, 'actionlogin'])->name('actionlogin');
 Route::post('actionlogout', [LoginController::class, 'actionlogout'])->name('actionlogout');
 
-Route::group(['middleware' => ['auth:sanctum']], function () {
-    Route::group(['middleware' => ['auth:sanctum']], function () {
+Route::group(['middleware' => ['auth', 'role:admin']], function () {
         Route::get('update', [MuzakkiController::class, 'update'])->name('muzakki.');
         Route::resource('muzakki', MuzakkiController::class);
-        Route::get('/', [DashboardController::class, 'dashboard'])->name('dashboard');
         Route::resource('mustahiq', MustahiqController::class);
         Route::get('update', [MustahiqController::class, 'update'])->name('mustahiq.');
         Route::resource('mustahiq', MustahiqController::class);
@@ -40,5 +38,8 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
         Route::resource('pembayaran', PembayaranController::class);
         Route::resource('penerimaan', PenerimaanController::class);
         Route::resource('user', UserController::class);
-    });
+});
+
+Route::group(['middleware' => ['auth', 'role:user,admin']], function () {
+        Route::get('/', [DashboardController::class, 'dashboard'])->name('dashboard');
 });

@@ -22,7 +22,7 @@ class DatabaseSeeder extends Seeder
             'alamat' => 'Alamat Admin',
             'username' => 'admin',
             'password' => bcrypt('12345678'),
+            'role' => 'admin',
         ]);
-            
     }
 }
