@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('pembayaran', function (Blueprint $table) {
             $table->id();
-            $table->string('id_zakat');
-            $table->string('id_muzakki');
+            $table->string('nama_zakat');
+            $table->string('nama_muzakki');
             $table->string('jumlah');
             $table->string('metode_pembayaran');
             $table->timestamps();

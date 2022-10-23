@@ -11,7 +11,7 @@ class pembayaran extends Model
     public $timestamps = false;
     protected $table = "pembayaran";
     protected $fillable = [
-        'nama_zakat', 
+        'nama_zakat',
         'nama_muzakki',
         'jumlah',
         'metode_pembayaran',
@@ -22,5 +22,12 @@ class pembayaran extends Model
     {
         return $this->hasOne(zakats::class, 'id', 'kategori_zakat');
         return $this->hasOne(muzakkis::class, 'id', 'id_muzakki');
+    }
+
+    protected $appends = ['point_total'];
+
+    public function Hitung()
+    {
+        return $this->jumlah+$this->next;
     }
 }

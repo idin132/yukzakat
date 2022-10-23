@@ -19,15 +19,6 @@
                             @method('PUT')
 
                             <div class="row mb-3">
-                                <label for="id_zakat"
-                                    class="col-md-4 col-form-label text-md-end">{{ __('ID Zakat') }}</label>
-
-                                <div class="col-md-6">
-                                    <input type="text" class="form-control" name="id_zakat"
-                                        value="{{ $zakats->id_zakat }}" required>
-                                </div>
-                            </div>
-                            <div class="row mb-3">
                                 <label for="kategori_zakat"
                                     class="col-md-4 col-form-label text-md-end">{{ __('Kategori Zakat') }}</label>
 

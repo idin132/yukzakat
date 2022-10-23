@@ -9,6 +9,8 @@ use App\Models\zakat;
 
 class PembayaranController extends Controller
 {
+
+   
     /**
      * Display a listing of the resource.
      *
@@ -18,6 +20,7 @@ class PembayaranController extends Controller
     {
         $pembayarans = pembayaran::all();
         return view ('pembayaran.index', compact('pembayarans'));
+        $pembayarans = muzakki::count()->DB::select('select * from pembayaran where jumlah = ?', [1]);
     }
 
     /**
@@ -124,6 +127,13 @@ class PembayaranController extends Controller
         $pembayarans = pembayaran::find($id);
         $pembayarans->delete();
         return to_route('pembayaranp.index')->with('hapus data berhasil>');
+    }
+
+    public function hitung($jumlah)
+    {
+        $Hitung = pembayaran::all($jumlah);
+        return view ('pembayaran.index', compact('Hitung'));
+
     }
 
 }

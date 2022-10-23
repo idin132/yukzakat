@@ -146,7 +146,7 @@
           <br><br>
           <form action="{{url('actionlogout')}}" method="post">
             @csrf
-            <button type="submit" class="btn btn-danger">Logout</button>
+            <button type="submit" class="btn btn-dark">Logout</button>
           </form>
         </div>
       </li>

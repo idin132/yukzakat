@@ -11,7 +11,7 @@
         <h3>Table Muzakki</h3>
     </div>
         <br>
-        <a href="{{ route('muzakki.create') }}", class="btn btn-success">+</a>
+        <a href="{{ route('muzakki.create') }}", class="btn btn-secondary">+</a>
         <br><br>
         <table class="table table-striped ">
             <thead>

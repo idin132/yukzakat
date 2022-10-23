@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Storage;
 
 class PenerimaanController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -126,4 +127,5 @@ class PenerimaanController extends Controller
         $penerimaan->delete();
         return to_route('penerimaan.index')->with('hapus data berhasil>');
     }
+
 }

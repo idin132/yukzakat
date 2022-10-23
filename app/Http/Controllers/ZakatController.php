@@ -7,6 +7,7 @@ use App\Models\zakat;
 
 class ZakatController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *

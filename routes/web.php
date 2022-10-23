@@ -27,36 +27,18 @@ Route::get('/login', [LoginController::class, 'login'])->name('login');
 Route::post('actionlogin', [LoginController::class, 'actionlogin'])->name('actionlogin');
 Route::post('actionlogout', [LoginController::class, 'actionlogout'])->name('actionlogout');
 
-/* Muzakki */
-
-Route::get('update', [MuzakkiController::class, 'update'])->name('muzakki.')->middleware('auth:sanctum');
-Route::resource('muzakki', MuzakkiController::class)->middleware('auth:sanctum');
-
-/* Dashboard */
-
-Route::get('/', [DashboardController::class, 'dashboard'])->name('dashboard')->middleware('auth:sanctum');
-
-/* Mustahiq */
-
-Route::resource('mustahiq', MustahiqController::class)->middleware('auth:sanctum');
-
-Route::get('update', [MustahiqController::class, 'update'])->name('mustahiq.')->middleware('auth:sanctum');
-Route::resource('mustahiq', MustahiqController::class)->middleware('auth:sanctum');
-
-// zakat
-
-Route::get('update', [ZakatController::class], 'update')->name('zakat.')->middleware('auth:sanctum');
-Route::resource('zakat', ZakatController::class)->middleware('auth:sanctum');
-
-// Pembayaran
-
-Route::resource('pembayaran', PembayaranController::class)->middleware('auth:sanctum');
-
-// penerimaan
-
-Route::resource('penerimaan', PenerimaanController::class)->middleware('auth:sanctum');
-
-
-
-//user
-Route::resource('user', UserController::class)->middleware('auth:sanctum');
+Route::group(['middleware' => ['auth:sanctum']], function () {
+    Route::group(['middleware' => ['auth:sanctum']], function () {
+        Route::get('update', [MuzakkiController::class, 'update'])->name('muzakki.');
+        Route::resource('muzakki', MuzakkiController::class);
+        Route::get('/', [DashboardController::class, 'dashboard'])->name('dashboard');
+        Route::resource('mustahiq', MustahiqController::class);
+        Route::get('update', [MustahiqController::class, 'update'])->name('mustahiq.');
+        Route::resource('mustahiq', MustahiqController::class);
+        Route::get('update', [ZakatController::class], 'update')->name('zakat.');
+        Route::resource('zakat', ZakatController::class);
+        Route::resource('pembayaran', PembayaranController::class);
+        Route::resource('penerimaan', PenerimaanController::class);
+        Route::resource('user', UserController::class);
+    });
+});

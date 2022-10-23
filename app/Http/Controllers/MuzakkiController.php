@@ -7,6 +7,7 @@ use App\Models\muzakki;
 
 class MuzakkiController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *

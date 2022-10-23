@@ -21,7 +21,7 @@
                             <div class="row text-end">
 
                                 <div class="col-md-6 mb-3">
-                                    <div class="card text-white bg-primary">
+                                    <div class="card text-white bg-dark">
                                         <div class="card-header">
                                             <div class="bi bi-people-fill">
                                                 Muzakki
@@ -36,7 +36,7 @@
                                 </div>
 
                                 <div class="col-md-6 mb-3">
-                                    <div class="card text-white bg-secondary">
+                                    <div class="card text-white bg-dark">
                                         <div class="card-header">
                                             <div class="bi bi-people-fill">
                                                 Mustahiq
@@ -51,9 +51,9 @@
                                 </div>
 
                                 <div class="col-md-6 mb-3">
-                                    <div class="card text-white bg-info">
+                                    <div class="card text-white bg-secondary">
                                         <div class="card-header">
-                                            <div class="bi bi-people-fill">
+                                            <div class="bi bi-cloud-arrow-down">
                                                 Penerimaan
                                             </div>
                                         </div>
@@ -66,9 +66,9 @@
                                 </div>
 
                                 <div class="col-md-6 mb-3">
-                                    <div class="card text-white bg-success">
+                                    <div class="card text-white bg-secondary">
                                         <div class="card-header">
-                                            <div class="bi bi-people-fill">
+                                            <div class="bi bi-cash-coin">
                                                 Pembayaran
                                             </div>
                                         </div>

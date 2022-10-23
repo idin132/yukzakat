@@ -11,7 +11,7 @@
         <h3>Table Mustahiq</h3>
     </div>
         <br>
-        <a href="{{route('mustahiq.create')}}" class="btn btn-success">+</a>
+        <a href="{{route('mustahiq.create')}}" class="btn btn-secondary">+</a>
         <br><br>
         <table id="maintable" class="table table-striped ">
             <thead>

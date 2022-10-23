@@ -8,6 +8,7 @@ use App\Models\muzakki;
 
 class MustahiqController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *

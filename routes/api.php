@@ -24,14 +24,14 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::apiResource('/posts', App\Http\Controllers\Api\PostController::class);
 
 // Kategori
-Route::apiResource('/kategori', App\Http\Controllers\Api\KategoriController::class);
+Route::apiResource('/kategori', App\Http\Controllers\Api\KategoriController::class)->middleware('auth:sanctum');;
 
 // Muzakki
 Route::apiResource('/muzakki', App\Http\Controllers\Api\MuzakkiController::class)->middleware('auth:sanctum');
 
 // Pembayaran
 
-Route::apiResource('/pembayaran', App\Http\Controllers\Api\PembayaranController::class);
+Route::apiResource('/pembayaran', App\Http\Controllers\Api\PembayaranController::class)->middleware('auth:sanctum');;
 
 //Count
 Route::apiResource('/count', App\Http\Controllers\Api\CountController::class);

@@ -6,63 +6,65 @@
     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
         <!-- Add icons to the links using the .nav-icon class
            with font-awesome or any other icon font library -->
-        <li class="nav-item">
-            <a href="{{ route('dashboard') }}" class="nav-link">
-                <i class="nav-icon bi bi-clipboard-fill mx-1"></i>
-                <p>
-                    Dashboard
-                </p>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a href="{{ route('muzakki.index') }}" class="nav-link">
-                <i class="bi bi-person mx-1"></i>
-                <p>
-                    Muzakki
-                </p>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a href="{{ route('mustahiq.index') }}" class="nav-link">
-                <i class="bi bi-person mx-1"></i>
-                <p>
-                    Mustahiq
-                </p>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a href="{{ route('zakat.index') }}" class="nav-link">
-                <i class="bi bi-wallet mx-1"></i>
-                <p>
-                    Zakat
-                </p>
-            </a>
-        </li>
-        </li>
-        <li class="nav-item">
-            <a href="{{ route('pembayaran.index') }}" class="nav-link">
-                <i class="bi bi-cash-coin mx-1"></i>
-                <p>
-                    Pembayaran
-                </p>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a href="{{ route('penerimaan.index') }}" class="nav-link">
-                <i class="bi bi-cloud-arrow-down mx-1"></i>
-                <p>
-                    Penerimaan
-                </p>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a href="{{ route('user.index') }}" class="nav-link">
-                <i class="bi bi-gear mx-1"></i>
-                <p>
-                    User Management
-                </p>
-            </a>
-        </li>
+        @if (Auth::user()->admin)
+            <li class="nav-item">
+                <a href="{{ route('dashboard') }}" class="nav-link">
+                    <i class="nav-icon bi bi-clipboard-fill mx-1"></i>
+                    <p>
+                        Dashboard
+                    </p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ route('muzakki.index') }}" class="nav-link">
+                    <i class="bi bi-person mx-1"></i>
+                    <p>
+                        Muzakki
+                    </p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ route('mustahiq.index') }}" class="nav-link">
+                    <i class="bi bi-person mx-1"></i>
+                    <p>
+                        Mustahiq
+                    </p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ route('zakat.index') }}" class="nav-link">
+                    <i class="bi bi-wallet mx-1"></i>
+                    <p>
+                        Zakat
+                    </p>
+                </a>
+            </li>
+            </li>
+            <li class="nav-item">
+                <a href="{{ route('pembayaran.index') }}" class="nav-link">
+                    <i class="bi bi-cash-coin mx-1"></i>
+                    <p>
+                        Pembayaran
+                    </p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ route('penerimaan.index') }}" class="nav-link">
+                    <i class="bi bi-cloud-arrow-down mx-1"></i>
+                    <p>
+                        Penerimaan
+                    </p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ route('user.index') }}" class="nav-link">
+                    <i class="bi bi-gear mx-1"></i>
+                    <p>
+                        User Management
+                    </p>
+                </a>
+            </li>
+            @endif
 
     </ul>
 </nav>
