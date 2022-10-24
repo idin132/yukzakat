@@ -15,7 +15,8 @@ class pembayaran extends Model
         'nama_muzakki',
         'jumlah',
         'metode_pembayaran',
-
+        'bukti_pembayaran',
+        'status',
     ];
 
     public function zakat()

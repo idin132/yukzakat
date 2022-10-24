@@ -19,6 +19,8 @@ return new class extends Migration
             $table->string('nama_muzakki');
             $table->string('jumlah');
             $table->string('metode_pembayaran');
+            $table->string('bukti_pembayaran');
+            $table->string('status');
             $table->timestamps();
         });
     }

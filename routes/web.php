@@ -9,7 +9,7 @@ use App\Http\Controllers\ZakatController;
 use App\Http\Controllers\PembayaranController;
 use App\Http\Controllers\PenerimaanController;
 use App\Http\Controllers\UserController;
-
+use App\Http\Controllers\VerifController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -37,6 +37,8 @@ Route::group(['middleware' => ['auth', 'role:admin']], function () {
         Route::resource('zakat', ZakatController::class);
         Route::resource('pembayaran', PembayaranController::class);
         Route::resource('penerimaan', PenerimaanController::class);
+        Route::resource('verif', VerifController::class);
+        Route::get('update', [VerifController::class], 'update')->name('verif.');
         Route::resource('user', UserController::class);
 });
 
