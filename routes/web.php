@@ -40,6 +40,7 @@ Route::group(['middleware' => ['auth', 'role:admin']], function () {
         Route::resource('verif', VerifController::class);
         Route::get('update', [VerifController::class], 'update')->name('verif.');
         Route::resource('user', UserController::class);
+        Route::get('update', [UserController::class], 'update')->name('user.');
 });
 
 Route::group(['middleware' => ['auth', 'role:user,admin']], function () {

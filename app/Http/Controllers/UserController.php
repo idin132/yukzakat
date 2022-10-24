@@ -25,7 +25,8 @@ class UserController extends Controller
      */
     public function create ()
     {
-        //
+        $user = user::all();
+        return view ('user.create', compact('user'));
     }
 
     /**
@@ -36,7 +37,25 @@ class UserController extends Controller
      */
     public function store (Request $request)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required',
+            'email' => 'required',
+            'no_hp' => 'required',
+            'alamat' => 'required',
+            'username' => 'required',
+            'password' => 'required',
+        ]);
+
+        $user = user::create([
+            'name'      => $request->name,
+            'email'     => $request->email,
+            'no_hp'     => $request->no_hp,
+            'alamat'    => $request->alamat,
+            'username'  => $request->username,
+            'password'  => bcrypt($request->password),
+        ]);
+
+        return redirect()->route('user.index');
     }
 
     /**
@@ -47,7 +66,7 @@ class UserController extends Controller
      */
     public function show ($id)
     {
-        //
+        
     }
 
      /**
@@ -58,7 +77,10 @@ class UserController extends Controller
      */
     public function edit ($id)
     {
-       //
+        $users = User::where('id', $id)->first();
+        return view('user.show', [
+            "users" => $users,
+        ]);
     }
 
     /**
@@ -70,7 +92,18 @@ class UserController extends Controller
      */
     public function update (Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required',
+            'email' => 'required',
+            'no_hp' => 'required',
+            'alamat' => 'required',
+            'username' => 'required',
+            'password' => 'required',
+        ]);
+
+        $users = user::where('id', $id);
+        $users->update($request->except('_token','_method'));
+        return redirect()->route('user.index');
     }
 
     /**
@@ -81,7 +114,9 @@ class UserController extends Controller
      */
     public function destroy ($id)
     {
-        //
+        $users = User::find($id);
+        $users->delete();
+        return to_route('user.index')->with('hapus data berhasil');
     }
 
     

@@ -11,7 +11,7 @@
         <h3>Table User</h3>
     </div>
         <br>
-        {{-- <a href="{{ route('muzakki.create') }}", class="btn btn-success">+</a> --}}
+        <a href="{{ route('user.create') }}", class="btn btn-success">+</a>
         <br><br>
         <table class="table table-striped ">
             <thead>
@@ -39,7 +39,7 @@
                     <td>
 
 
-                        <form>
+                        <form action="{{ route('user.destroy', $item->id) }}" method="post">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger">
@@ -47,8 +47,8 @@
                                 </button>
                               </form>
 
-                              <a class="btn btn-info bi bi-send"></a>
-                        <a class="btn btn-warning">
+                              
+                              <a href="{{route ('user.edit', $item->id)}}" class="btn btn-warning">
                                 <i class="fas fa-solid fa-pen"></i>
                               </a>
                     </td>
