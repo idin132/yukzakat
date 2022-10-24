@@ -16,17 +16,17 @@ use Illuminate\Support\Facades\Validator;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
-Route::apiResource('/muzakki', App\Http\Controllers\Api\MuzakkiController::class);
+// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
+Route::apiResource('/user', App\Http\Controllers\Api\UserController::class);
 Route::apiResource('/count', App\Http\Controllers\Api\CountController::class);
 Route::post('/register', App\Http\Controllers\Api\RegisterController::class)->name('register');
 Route::post('/login', App\Http\Controllers\Api\LoginController::class)->name('login');
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+// Route::middleware('auth:api')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
 
 Route::post('/logout', App\Http\Controllers\Api\LogoutController::class)->name('logout');
 
