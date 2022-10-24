@@ -6,7 +6,7 @@
             <div class="card" style="width: 40rem;">
                 <div class="card-header">
                     <div class="card-body">
-                        <form action="{{ route('verif.store') }}" method="post">
+                        <form action="{{ route('verif.store') }}" enctype="multipart/form-data" method="post">
                             @csrf
 
                             <div class="form-group">

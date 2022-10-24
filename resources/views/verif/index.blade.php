@@ -11,7 +11,7 @@
         <h3>Table Pembayaran</h3>
     </div>
         <br>
-        {{-- <a href="{{route('verif.create')}}" class="btn btn-success">+</a> --}}
+        <a href="{{route('verif.create')}}" class="btn btn-success">+</a>
         <br><br>
         <table class="table table-striped ">
             <thead>
@@ -25,7 +25,7 @@
                     <th>Status</th>
                 </tr>
             </thead>
-            @foreach ($pembayarans as $key=>$item)
+            @foreach ($verif as $key=>$item)
             <tbody>
                 <tr>
                     <td>{{$item->id}}</td>
@@ -33,7 +33,7 @@
                     <td>{{$item->nama_muzakki}}</td>
                     <td>{{$item->jumlah}}</td>
                     <td>{{$item->metode_pembayaran}}</td>
-                    <td>{{$item->bukti_pembayaran}}</td>
+                    <td>@if($item->bukti_pembayaran == null) - @else <a href="{{ url('storage/foto/'.$item->bukti_pembayaran) }}" target="_blank" class="btn btn-dark">View</a> @endif</td>
                     <td>{{$item->status}}</td>
                     <td>
 
