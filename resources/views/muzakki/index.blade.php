@@ -18,7 +18,6 @@
                 <tr>
                     <th>NO</th>
                     <th>Nama Muzakki</th>
-                    <th>Usia</th>
                     <th>Nomor Handphone</th>
                     <th>Alamat</th>
                 </tr>
@@ -27,8 +26,7 @@
             <tbody>
                 <tr>
                     <td>{{$muzakki->id}}</td>
-                    <td>{{$muzakki->nama_muzakki}}</td>
-                    <td>{{$muzakki->usia}}</td>
+                    <td>{{$muzakki->name}}</td>
                     <td>{{$muzakki->no_hp}}</td>
                     <td>{{$muzakki->alamat}}</td>
                     <td>
