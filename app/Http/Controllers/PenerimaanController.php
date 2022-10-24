@@ -125,6 +125,7 @@ class PenerimaanController extends Controller
     {
         $penerimaan = penerimaan::find($id);
         $penerimaan->delete();
+        Storage::delete('public/storage/foto/'.$penerimaan->bukti);
         return to_route('penerimaan.index')->with('hapus data berhasil>');
     }
 

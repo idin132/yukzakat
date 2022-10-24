@@ -56,6 +56,14 @@
                 </a>
             </li>
             <li class="nav-item">
+                <a href="{{ route('verif.index') }}" class="nav-link">
+                    <i class="bi bi-cash-coin mx-1"></i>
+                    <p>
+                        Verifikasi Pembayaran
+                    </p>
+                </a>
+            </li>
+            <li class="nav-item">
                 <a href="{{ route('user.index') }}" class="nav-link">
                     <i class="bi bi-gear mx-1"></i>
                     <p>

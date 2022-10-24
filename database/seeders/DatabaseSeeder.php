@@ -21,7 +21,7 @@ class DatabaseSeeder extends Seeder
             'no_hp' => '081111111',
             'alamat' => 'Alamat Admin',
             'username' => 'admin',
-            'password' => bcrypt('12345678'),
+            'password' => bcrypt('admin'),
             'role' => 'admin',
         ]);
     }
