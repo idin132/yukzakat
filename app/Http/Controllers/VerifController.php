@@ -2,77 +2,136 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\muzakki;
 use Illuminate\Http\Request;
 use App\Models\pembayaran;
-use App\Models\zakat;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 
 class VerifController extends Controller
 {
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
-        $pembayarans = pembayaran::all();
-        return view ('verif.index', compact('pembayarans'));
+        $verif = pembayaran::all();
+        return view('verif.index', compact('verif'));
     }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function create()
     {
-        $zakat = zakat::all();
-        $muzakki = muzakki::all();
+        $verif = pembayaran::all();
 
         return view('verif.create', [
-            'zakat' => $zakat,
-            'muzakki' => $muzakki,
+            'verif' => $verif,
         ]);
-
     }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
     public function store(Request $request)
     {
         $this->validate($request, [
             'nama_zakat' => 'required',
-            'nama_mustahiq' => 'required',
+            'nama_muzakki' => 'required',
             'jumlah' => 'required',
             'metode_pembayaran' => 'required',
             'bukti_pembayaran' => 'required',
             'status' => 'required',
+
         ]);
 
-        $pembayarans = pembayaran::create([
+        $image = $request->file('bukti_pembayaran');
+        $image->storeAs('public/foto', $image->hashName());
+
+        $verif = pembayaran::create([
             'nama_zakat' => $request->nama_zakat,
             'nama_muzakki' => $request->nama_muzakki,
             'jumlah' => $request->jumlah,
             'metode_pembayaran' => $request->metode_pembayaran,
-            'bukti_pembayaran' => $request->bukti_pembayaran,
+            'bukti_pembayaran' => $image->hashName(),
             'status' => $request->status,
         ]);
 
-        return redirect()->route('mustahiq.index');
+        return redirect()->route('verif.index');
     }
-    public function edit ($id)
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+
+    public function show($id)
     {
-        $pembayarans = pembayaran::where('id', $id)->first();
+        $verif = pembayaran::oldest('id')->simplepaginate(1);
+        return view('verif.detail', compact('verif'));
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+
+    public function edit($id)
+    {
+        $verif = pembayaran::where('id', $id)->first();
         return view('verif.show', [
-            "pembayarans" => $pembayarans,
+            "verif" => $verif,
         ]);
     }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+
     public function update(Request $request, $id)
     {
-         $this->validate($request, [
+        $this->validate($request, [
             'nama_zakat' => 'required',
-            'nama_mustahiq' => 'required',
+            'nama_muzakki' => 'required',
             'jumlah' => 'required',
             'metode_pembayaran' => 'required',
             'bukti_pembayaran' => 'required',
             'status' => 'required',
-         ]);
+        ]);
 
-         $pembayarans = pembayaran::where('id', $id);
-         $pembayarans->update($request->except('_token','_method'));
-         return redirect()->route('verif.index');
+        $verif = pembayaran::where('id', $id);
+        $verif->update($request->except('_token', '_method'));
+        return redirect()->route('verif.index');
     }
-    public function destroy ($id)
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+
+    public function destroy($id)
     {
-        $pembayarans = pembayaran::find($id);
-        $pembayarans->delete();
-        return to_route('verif.index')->with('hapus data berhasil>');
+        $verif = pembayaran::find($id);
+        $verif->delete();
+        Storage::delete('public/storage/foto/' . $verif->bukti_pembayaran);
+        return to_route('penerimaan.index')->with('hapus data berhasil>');
     }
 }

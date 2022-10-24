@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\muzakki;
+use App\Models\User;
 
 class MuzakkiController extends Controller
 {
@@ -15,8 +15,8 @@ class MuzakkiController extends Controller
      */
     public function index()
     {
-        $muzakkis = muzakki::all();
-        return view ('muzakki.index', compact('muzakkis'));
+        $muzakkis = User::all();
+        return view('muzakki.index', compact('muzakkis'));
     }
 
     /**
@@ -26,9 +26,8 @@ class MuzakkiController extends Controller
      */
     public function create()
     {
-        $muzakki = muzakki::all();
-        return view ('muzakki.create', compact('muzakki'));
-
+        $muzakki = User::all();
+        return view('muzakki.create', compact('muzakki'));
     }
 
     /**
@@ -40,51 +39,55 @@ class MuzakkiController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'nama_muzakki' => 'required',
-            'usia' => 'required',
+            'name' => 'required',
+            'email' => 'required',
             'no_hp' => 'required',
             'alamat' => 'required',
+            'username' => 'required',
+            'password' => 'required',
         ]);
 
-        $muzakkis = muzakki::create([
-            'nama_muzakki' => $request->nama_muzakki,
-            'usia' => $request->usia,
+        $muzakkis = User::create([
+            'name' => $request->name,
+            'email' => $request->email,
             'no_hp' => $request->no_hp,
             'alamat' => $request->alamat,
+            'username' => $request->username,
+            'password' => $request->password,
         ]);
 
         return redirect()->route('muzakki.index');
     }
 
-     /**
+    /**
      * Display the specified resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
 
-     public function show ($id)
-     {
-         $muzakki = muzakki::oldest('id')->simplepaginate(1);
-         return view('muzakki.detail', compact('muzakki'));
-     }
+    public function show($id)
+    {
+        $muzakki = User::oldest('id')->simplepaginate(1);
+        return view('muzakki.detail', compact('muzakki'));
+    }
 
-     /**
+    /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
 
-     public function edit ($id)
-     {
-         $muzakki = muzakki::where('id', $id)->first();
-         return view('muzakki.show', [
-             "muzakkis" => $muzakki,
-         ]);
-     }
+    public function edit($id)
+    {
+        $muzakki = User::where('id', $id)->first();
+        return view('muzakki.show', [
+            "muzakkis" => $muzakki,
+        ]);
+    }
 
-     /**
+    /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -92,19 +95,21 @@ class MuzakkiController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-     public function update(Request $request, $id)
-     {
-         $this->validate($request, [
-             'nama_muzakki' => 'required',
-             'usia' => 'required',
-             'no_hp' => 'required',
-             'alamat' => 'required',
-         ]);
+    public function update(Request $request, $id)
+    {
+        $this->validate($request, [
+            'name' => 'required',
+            'email' => 'required',
+            'no_hp' => 'required',
+            'alamat' => 'required',
+            'username' => 'required',
+            'password' => 'required',
+        ]);
 
-         $muzakki = muzakki::where('id', $id);
-         $muzakki->update($request->except('_token','_method'));
-         return redirect()->route('muzakki.index');
-     }
+        $muzakki = User::where('id', $id);
+        $muzakki->update($request->except('_token', '_method'));
+        return redirect()->route('muzakki.index');
+    }
 
     /**
      * Remove the specified resource from storage.
@@ -113,11 +118,10 @@ class MuzakkiController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function destroy ($id)
+    public function destroy($id)
     {
-        $muzakki = muzakki::find($id);
+        $muzakki = User::find($id);
         $muzakki->delete();
         return to_route('muzakki.index')->with('hapus data berhasil>');
     }
-
 }

@@ -30,10 +30,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::post('/logout', App\Http\Controllers\Api\LogoutController::class)->name('logout');
 
-Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::apiResource('/kategori', App\Http\Controllers\Api\KategoriController::class);
     Route::apiResource('/pembayaran', App\Http\Controllers\Api\PembayaranController::class);
     Route::apiResource('/posts', App\Http\Controllers\Api\PostController::class);
-});
 
 
