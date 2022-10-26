@@ -21,7 +21,14 @@
                                     </select>
                                 </div>
                             </div>
+                            <div class="form-group">
+                                <label for="id_zakat"
+                                    class="col-md-4 col-form-label text-md-end">{{ __('ID Zakat') }}</label>
 
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" name="id_zakat" required>
+                                </div>
+                            </div>
 
                             <button type="submit" class="btn btn-success">Tambah</button>
                             <a href="{{ route('zakat.index') }}" class="btn btn-primary">Kembali</a>
