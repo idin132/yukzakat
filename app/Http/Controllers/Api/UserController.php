@@ -59,7 +59,7 @@ class UserController extends Controller
     public function show(User $user)
     {
         //return single post as a resource
-        return new UserResource(true, 'Data Post Ditemukan!', $user);
+        return new UserResource(true, 'Data Ditemukan!', $user);
     }
 
     public function update(Request $request, User $user)

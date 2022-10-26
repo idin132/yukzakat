@@ -28,6 +28,8 @@ class PenerimaanController extends Controller
      */
     public function create()
     {
+        $total = penerimaan::sum('jumlah');
+        return view('penerimaan.index', compact('total'));
         $penerimaan = penerimaan::all();
 
         return view('penerimaan.create', [
@@ -125,8 +127,7 @@ class PenerimaanController extends Controller
     {
         $penerimaan = penerimaan::find($id);
         $penerimaan->delete();
-        Storage::delete('public/storage/foto/'.$penerimaan->bukti);
+        Storage::delete('public/storage/foto/' . $penerimaan->bukti);
         return to_route('penerimaan.index')->with('hapus data berhasil>');
     }
-
 }

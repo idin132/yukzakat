@@ -60,7 +60,7 @@ class PembayaranController extends Controller
     public function show(pembayaran $pembayaran)
     {
         //return single post as a resource
-        return new PembayaranResource(true, 'Data Post Ditemukan!', $pembayaran);
+        return new PembayaranResource(true, 'Data Ditemukan!', $pembayaran);
     }
 
     public function update(Request $request, pembayaran $pembayaran)

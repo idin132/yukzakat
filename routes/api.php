@@ -30,8 +30,7 @@ Route::post('/login', App\Http\Controllers\Api\LoginController::class)->name('lo
 
 Route::post('/logout', App\Http\Controllers\Api\LogoutController::class)->name('logout');
 
-    Route::apiResource('/kategori', App\Http\Controllers\Api\KategoriController::class);
-    Route::apiResource('/pembayaran', App\Http\Controllers\Api\PembayaranController::class);
-    Route::apiResource('/posts', App\Http\Controllers\Api\PostController::class);
-
-
+Route::apiResource('/kategori', App\Http\Controllers\Api\KategoriController::class);
+Route::apiResource('/pembayaran', App\Http\Controllers\Api\PembayaranController::class);
+Route::apiResource('/posts', App\Http\Controllers\Api\PostController::class);
+Route::apiResource('/total', App\Http\Controllers\Api\TotalController::class);

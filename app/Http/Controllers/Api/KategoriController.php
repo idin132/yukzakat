@@ -50,7 +50,7 @@ class KategoriController extends Controller
         ]);
 
         //return response
-        return new KategoriResource(true, 'Data Post Berhasil Ditambahkan!', $kategori);
+        return new KategoriResource(true, 'Data Berhasil Ditambahkan!', $kategori);
     }
 
     public function show(zakat $kategori)
