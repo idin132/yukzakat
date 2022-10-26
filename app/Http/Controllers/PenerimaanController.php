@@ -29,11 +29,10 @@ class PenerimaanController extends Controller
     public function create()
     {
         $total = penerimaan::sum('jumlah');
-        return view('penerimaan.index', compact('total'));
         $penerimaan = penerimaan::all();
 
         return view('penerimaan.create', [
-            'penerimaan' => $penerimaan,
+            'penerimaan' => $penerimaan, compact('total')
         ]);
     }
 
