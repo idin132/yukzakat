@@ -18,11 +18,8 @@ class KategoriController extends Controller
      */
     public function index()
     {
-        //get posts
-        $kategoris = zakat::latest()->paginate(5);
-
-        //return collection of posts as a resource
-        return new KategoriResource(true, 'List Data', $kategoris);
+        $kategoris = zakat::all();
+        return new KategoriResource(200, 'List Data', $kategoris);
     }
 
     /**

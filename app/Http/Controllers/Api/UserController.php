@@ -19,10 +19,8 @@ class UserController extends Controller
     public function index()
     {
         //get posts
-        $user = User::latest()->paginate(5);
-
-        //return collection of posts as a resource
-        return new UserResource(true, 'List Data', $user);
+        $user = User::all();
+        return new UserResource(200, 'List Data', $user);
     }
 
     /**

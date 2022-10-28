@@ -18,7 +18,7 @@ class TotalController extends Controller
     {
        
         $total = pembayaran::sum('jumlah');
-        return new TotalResource(true, 'Total Donasi Terkumpul', $total);
+        return new TotalResource(200, 'Total Donasi Terkumpul', $total);
     }
 
 }
