@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 
 class KategoriController extends Controller
-{    
+{
     /**
      * index
      *
@@ -18,11 +18,8 @@ class KategoriController extends Controller
      */
     public function index()
     {
-        //get posts
-        $kategoris = zakat::latest()->paginate(5);
-
-        //return collection of posts as a resource
-        return new KategoriResource(true, 'List Data Posts', $kategoris);
+        $kategoris = zakat::all();
+        return new KategoriResource(200, 'List Data', $kategoris);
     }
 
     /**
@@ -35,6 +32,7 @@ class KategoriController extends Controller
     {
         //define validation rules
         $validator = Validator::make($request->all(), [
+            'id_zakat'     => 'required',
             'kategori_zakat'     => 'required',
         ]);
 
@@ -44,24 +42,25 @@ class KategoriController extends Controller
         }
         //create post
         $kategori = zakat::create([
+            'id_zakat'     => $request->id_zakat,
             'kategori_zakat'     => $request->kategori_zakat,
         ]);
 
         //return response
-        return new KategoriResource(true, 'Data Post Berhasil Ditambahkan!', $kategori);
-        
+        return new KategoriResource(true, 'Data Berhasil Ditambahkan!', $kategori);
     }
 
     public function show(zakat $kategori)
     {
         //return single post as a resource
-        return new KategoriResource(true, 'Data Post Ditemukan!', $kategori);
+        return new KategoriResource(true, 'Data Ditemukan!', $kategori);
     }
 
     public function update(Request $request, zakat $kategori)
     {
         //define validation rules
         $validator = Validator::make($request->all(), [
+            'id_zakat'   => 'required',
             'kategori_zakat'   => 'required',
         ]);
 
@@ -75,11 +74,12 @@ class KategoriController extends Controller
 
             //update
             $kategori->update([
+                'id_zakat'   => $request->id_zakat,
                 'kategori_zakat'   => $request->kategori_zakat,
             ]);
         }
 
         //return response
-        return new KategoriResource(true, 'Data Post Berhasil Diubah!', $kategori);
+        return new KategoriResource(true, 'Data Berhasil Diubah!', $kategori);
     }
 }

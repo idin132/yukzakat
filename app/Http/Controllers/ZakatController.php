@@ -41,10 +41,12 @@ class ZakatController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
+            'id_zakat' => 'required',
             'kategori_zakat' => 'required',
         ]);
 
         $zakats = zakat::create([
+            'id_zakat' => $request->id_zakat,
             'kategori_zakat' => $request->kategori_zakat,
         ]);
 
@@ -90,6 +92,7 @@ class ZakatController extends Controller
      public function update(Request $request, $id)
      {
          $this->validate($request, [
+             'id_zakat' => 'required',
              'kategori_zakat' => 'required',
          ]);
 

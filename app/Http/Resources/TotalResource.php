@@ -4,7 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class PembayaranResource extends JsonResource
+class TotalResource extends JsonResource
 {
     //define properti
     public $status;
@@ -36,7 +36,7 @@ class PembayaranResource extends JsonResource
         return [
             'status'   => $this->status,
             'message'   => $this->message,
-            'data'      => $this->resource
+            'jumlah'      => $this->resource
         ];
     }
 }

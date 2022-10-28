@@ -18,11 +18,8 @@ class PembayaranController extends Controller
      */
     public function index()
     {
-        //get posts
-        $pembayaran = pembayaran::latest()->paginate(5);
-
-        //return collection of posts as a resource
-        return new PembayaranResource(true, 'List Data', $pembayaran);
+        $pembayaran = pembayaran::all();
+        return new PembayaranResource(200, 'List Data', $pembayaran);
     }
 
     /**
@@ -60,7 +57,7 @@ class PembayaranController extends Controller
     public function show(pembayaran $pembayaran)
     {
         //return single post as a resource
-        return new PembayaranResource(true, 'Data Post Ditemukan!', $pembayaran);
+        return new PembayaranResource(true, 'Data Ditemukan!', $pembayaran);
     }
 
     public function update(Request $request, pembayaran $pembayaran)

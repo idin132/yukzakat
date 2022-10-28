@@ -17,6 +17,7 @@
             <thead>
                 <tr>
                     <th>NO</th>
+                    <th>ID Zakat</th>
                     <th>Kategori Zakat</th>
                     <th>Action</th>
                 </tr>
@@ -25,6 +26,7 @@
             <tbody>
                 <tr>
                     <td>{{$item->id}}</td>
+                    <td>{{$item->id_zakat}}</td>
                     <td>{{$item->kategori_zakat}}</td>
                     <td>
 

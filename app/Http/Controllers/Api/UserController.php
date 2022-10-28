@@ -19,10 +19,8 @@ class UserController extends Controller
     public function index()
     {
         //get posts
-        $user = User::latest()->paginate(5);
-
-        //return collection of posts as a resource
-        return new UserResource(true, 'List Data', $user);
+        $user = User::all();
+        return new UserResource(200, 'List Data', $user);
     }
 
     /**
@@ -59,7 +57,7 @@ class UserController extends Controller
     public function show(User $user)
     {
         //return single post as a resource
-        return new UserResource(true, 'Data Post Ditemukan!', $user);
+        return new UserResource(true, 'Data Ditemukan!', $user);
     }
 
     public function update(Request $request, User $user)

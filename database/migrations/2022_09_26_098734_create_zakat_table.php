@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('zakat', function (Blueprint $table) {
             $table->id();
             $table->string('kategori_zakat');
+            $table->string('id_zakat');
             $table->timestamps();
         });
     }
