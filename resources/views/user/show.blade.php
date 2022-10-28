@@ -58,14 +58,6 @@
                                     <input type="text" class="form-control" name="username" value="{{ $users->username }}" required>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label for="password"
-                                    class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
-
-                                <div class="col-md-6">
-                                    <input type="password" class="form-control" name="password" required>
-                                </div>
-                            </div>
 
                             <div class="row mb-0">
                                 <div class="col-md-8 offset-md-4">

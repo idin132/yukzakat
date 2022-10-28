@@ -10,6 +10,7 @@ use App\Http\Controllers\PembayaranController;
 use App\Http\Controllers\PenerimaanController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\VerifController;
+use App\Http\Controllers\CpwController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -46,3 +47,8 @@ Route::group(['middleware' => ['auth', 'role:admin']], function () {
 Route::group(['middleware' => ['auth', 'role:user,admin']], function () {
         Route::get('/', [DashboardController::class, 'dashboard'])->name('dashboard');
 });
+
+Route::controller(CpwController::class)->group(function () {
+        Route::get('profile', 'index')->name('cpw');
+        Route::post('cpw', 'changePassword')->name('cpw.reset-password');
+    });
