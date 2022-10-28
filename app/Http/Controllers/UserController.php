@@ -98,7 +98,6 @@ class UserController extends Controller
             'no_hp' => 'required',
             'alamat' => 'required',
             'username' => 'required',
-            'password' => 'required',
         ]);
 
         $users = user::where('id', $id);
