@@ -62,3 +62,4 @@ class BasicAuth
         return $next($request);
     }
 }
+}
