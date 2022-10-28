@@ -89,8 +89,6 @@ class PembayaranController extends Controller
 
         //return response
         return new PembayaranResource(true, 'Data Berhasil Diubah!', $pembayaran);
-
-        
     }
 
     /**
@@ -101,7 +99,7 @@ class PembayaranController extends Controller
      */
     public function destroy(pembayaran $pembayaran)
     {
-        
+
         $pembayaran->delete();
 
         //return response
