@@ -5,6 +5,8 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 use App\Http\Models\User;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 class BasicAuth
 {
     /**
@@ -17,34 +19,34 @@ class BasicAuth
     public function handle(Request $request, Closure $next)
     {
         {
-            //set validation
-            $validator = Validator::make($request->all(), [
-                'username'     => 'required',
-                'password'  => 'required'
-            ]);
+            // //set validation
+            // $validator = Validator::make($request->all(), [
+            //     'username'     => 'required',
+            //     'password'  => 'required'
+            // ]);
     
-            //if validation fails
-            if ($validator->fails()) {
-                return response()->json($validator->errors(), 422);
-            }
+            // //if validation fails
+            // if ($validator->fails()) {
+            //     return response()->json($validator->errors(), 422);
+            // }
     
-            //get credentials from request
-            $credentials = $request->only('username', 'password');
+            // //get credentials from request
+            // $credentials = $request->only('username', 'password');
     
-            //if auth failed
-            if(!$token = auth()->guard('api')->attempt($credentials)) {
-                return response()->json([
-                    'success' => false,
-                    'message' => 'Email atau Password Anda salah'
-                ], 401);
-            }
+            // //if auth failed
+            // if(!$token = auth()->guard('api')->attempt($credentials)) {
+            //     return response()->json([
+            //         'success' => false,
+            //         'message' => 'Email atau Password Anda salah'
+            //     ], 401);
+            // }
     
-            //if auth success
-            return response()->json([
-                'success' => true,
-                'user'    => auth()->guard('api')->user(),    
-                'token'   => $token   
-            ], 200);
+            // //if auth success
+            // return response()->json([
+            //     'success' => true,
+            //     'user'    => auth()->guard('api')->user(),    
+            //     'token'   => $token   
+            // ], 200);
         $AUTH_USER = 'admin';
         $AUTH_PASS = 'admin';
         header('Cache-Control: no-cache, must-revalidate, max-age=0');
