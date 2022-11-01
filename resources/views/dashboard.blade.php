@@ -98,7 +98,7 @@
                         </div>
                     </div>
                     <div class="card-body h3">
-                       Rp. {{ number_format($total) }}
+                       Rp. {{ number_format($total_donasi) }}
                         <h5 class="card-title"></h5>
                         <p class="card-text justify-content-end"></p>
                     </div>

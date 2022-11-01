@@ -36,7 +36,7 @@ class TotalResource extends JsonResource
         return [
             'status'   => $this->status,
             'message'   => $this->message,
-            'jumlah'      => $this->resource
+            'total_donasi'      => $this->resource
         ];
     }
 }

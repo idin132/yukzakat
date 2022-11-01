@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('nama_zakat');
             $table->string('nama_muzakki');
-            $table->string('jumlah');
+            $table->string('total_donasi');
             $table->string('metode_pembayaran');
             $table->string('bukti_pembayaran');
             $table->string('status');

@@ -16,8 +16,8 @@ class DashboardController extends Controller
         $muzakkis = User::count();
         $penerimaan = penerimaan::count();
         $pembayaran = pembayaran::count();
-        $total = pembayaran::sum('jumlah');
-        return view('dashboard', compact('mustahiqs','muzakkis', 'penerimaan', 'pembayaran','total'));
+        $total_donasi = pembayaran::sum('total_donasi');
+        return view('dashboard', compact('mustahiqs','muzakkis', 'penerimaan', 'pembayaran','total_donasi'));
     }
 
 }

@@ -34,3 +34,4 @@ Route::apiResource('/kategori', App\Http\Controllers\Api\KategoriController::cla
 Route::apiResource('/pembayaran', App\Http\Controllers\Api\PembayaranController::class);
 Route::apiResource('/posts', App\Http\Controllers\Api\PostController::class);
 Route::apiResource('/total', App\Http\Controllers\Api\TotalController::class);
+
