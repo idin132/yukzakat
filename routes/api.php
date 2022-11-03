@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\Api\ProfileController;
+use App\Http\Controllers\Auth\NewPasswordController;
+use GuzzleHttp\Middleware;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Validator;
@@ -22,8 +25,9 @@ Route::apiResource('/user', App\Http\Controllers\Api\UserController::class);
 Route::apiResource('/count', App\Http\Controllers\Api\CountController::class);
 Route::post('/register', App\Http\Controllers\Api\RegisterController::class)->name('register');
 Route::post('/login', App\Http\Controllers\Api\LoginController::class)->name('login');
-Route::apiResource('/profile', App\Http\Controllers\Api\CpwController::class)->middleware('basicAuth');
-Route::post('/cpw', 'App\Http\Controllers\Api\CpwController@changePassword')->middleware('basicAuth');
+Route::post('/forgot-password', App\Http\Controllers\Api\NewPasswordController::class)->name('forgot_password');
+Route::post('/reset-password',  App\Http\Controllers\Api\ResetPasswordController::class)->name('reset');
+Route::apiResource('/profile', App\Http\Controllers\Api\CpwController::class);
 Route::middleware('basicAuth')->get('/user', function (Request $request) {
     return $request->user();
 });
@@ -34,4 +38,5 @@ Route::apiResource('/kategori', App\Http\Controllers\Api\KategoriController::cla
 Route::apiResource('/pembayaran', App\Http\Controllers\Api\PembayaranController::class);
 Route::apiResource('/posts', App\Http\Controllers\Api\PostController::class);
 Route::apiResource('/total', App\Http\Controllers\Api\TotalController::class);
+
 

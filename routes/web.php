@@ -49,6 +49,6 @@ Route::group(['middleware' => ['auth', 'role:user,admin']], function () {
 });
 
 Route::controller(CpwController::class)->group(function () {
-        Route::get('profile', 'index')->name('cpw');
+        Route::get('profile', 'index')->name('profile');
         Route::post('cpw', 'changePassword')->name('cpw.reset-password');
     });

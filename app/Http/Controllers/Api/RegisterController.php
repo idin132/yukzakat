@@ -6,6 +6,8 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Hash;
 
 class RegisterController extends Controller
 {
@@ -39,7 +41,8 @@ class RegisterController extends Controller
             'no_hp'     => $request->no_hp,
             'alamat'    => $request->alamat,
             'username'  => $request->username,
-            'password'  => bcrypt($request->password)
+            'password'  => Hash::make($request['password']),
+            'api_token' => Str::random(60),
         ]);
 
         //return response JSON user is created

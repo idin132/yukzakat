@@ -71,6 +71,14 @@
                     </p>
                 </a>
             </li>
+            <li class="nav-item">
+                <a href="{{ route('profile') }}" class="nav-link">
+                    <i class="bi bi-gear mx-1"></i>
+                    <p>
+                        Change Password
+                    </p>
+                </a>
+            </li>
 
     </ul>
 </nav>
