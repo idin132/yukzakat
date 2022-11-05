@@ -21,13 +21,12 @@ use Illuminate\Support\Facades\Validator;
 // Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //     return $request->user();
 // });
-Route::apiResource('/user', App\Http\Controllers\Api\UserController::class);
+Route::apiResource('/users', App\Http\Controllers\Api\UserController::class);
 Route::apiResource('/count', App\Http\Controllers\Api\CountController::class);
 Route::post('/register', App\Http\Controllers\Api\RegisterController::class)->name('register');
 Route::post('/login', App\Http\Controllers\Api\LoginController::class)->name('login');
 Route::post('/forgot-password', App\Http\Controllers\Api\NewPasswordController::class)->name('forgot_password');
 Route::post('/reset-password',  App\Http\Controllers\Api\ResetPasswordController::class)->name('reset');
-Route::apiResource('/profile', App\Http\Controllers\Api\CpwController::class);
 Route::middleware('basicAuth')->get('/user', function (Request $request) {
     return $request->user();
 });

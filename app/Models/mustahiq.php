@@ -14,4 +14,8 @@ class mustahiq extends Model
         'nama_mustahiq', 'usia','alamat',
 
     ];
+
+    public function mustahiq(){
+        return $this->belongsTo('App\Models\mustahiq');
+    } 
 }

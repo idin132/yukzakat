@@ -13,9 +13,13 @@
                                 <label for="nama"
                                     class="col-md-4 col-form-label text-md-end">{{ __('Nama') }}</label>
 
-                                <div class="col-md-6">
-                                    <input type="text" class="form-control" name="nama" required>
-                                </div>
+                                    <div class="col-md-6">
+                                        <select name="nama" id="nama" class="form-control">
+                                            @foreach($mustahiq as $item)
+                                            <option value="{{ $item->nama_mustahiq  }}">{{ $item->nama_mustahiq }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
                             </div>
 
                             <div class="form-group">

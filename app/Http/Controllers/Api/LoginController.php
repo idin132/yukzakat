@@ -40,7 +40,7 @@ class LoginController extends Controller
 
         //if auth success
         return response()->json([
-            'status' => 400,
+            'status' => 200,
             'user'    => auth()->guard('api')->user(),    
             'token'   => $token   
         ], 200);

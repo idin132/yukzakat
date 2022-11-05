@@ -11,7 +11,6 @@
         <h3>Table Pembayaran</h3>
     </div>
         <br>
-        {{-- <a href="{{route('pembayaran.create')}}" class="btn btn-success">+</a> --}}
         <br><br>
         <table class="table table-striped ">
             <thead>
@@ -31,6 +30,10 @@
                     <td>{{$item->nama_muzakki}}</td>
                     <td>{{$item->jumlah}}</td>
                     <td>{{$item->metode_pembayaran}}</td>
+                    <td>@if($item->bukti_pembayaran == null) - @else <a href="{{ url('storage/foto/'.$item->bukti_pembayaran) }}" target="_blank" class="btn btn-dark">View</a> @endif</td>
+                    <td>{{$item->metode_pembayaran}}</td>
+
+
                     <td>
 
                     </td>

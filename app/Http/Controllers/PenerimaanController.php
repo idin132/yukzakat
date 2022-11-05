@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\penerimaan;
+use App\Models\mustahiq;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
 
@@ -30,9 +31,11 @@ class PenerimaanController extends Controller
     {
         $total = penerimaan::sum('jumlah');
         $penerimaan = penerimaan::all();
+        $mustahiq = mustahiq::all();
 
         return view('penerimaan.create', [
-            'penerimaan' => $penerimaan, compact('total')
+            'penerimaan' => $penerimaan, compact('total', 'mustahiq'),
+            'mustahiq' => $mustahiq,
         ]);
     }
 

@@ -18,7 +18,7 @@ class TotalController extends Controller
      */
     public function index()
     {
-        $total_donasi = pembayaran::sum('total_donasi');
+        $total_donasi = pembayaran::sum('jumlah');
         return new TotalResource(200, 'Total Donasi Terkumpul', $total_donasi);
     }
 }

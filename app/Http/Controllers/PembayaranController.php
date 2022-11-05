@@ -53,13 +53,21 @@ class PembayaranController extends Controller
             'nama_mustahiq' => 'required',
             'jumlah' => 'required',
             'metode_pembayaran' => 'required',
+            'bukti_pembayaran' => 'required',
+            'status' => 'required',
         ]);
+
+        $image = $request->file('bukti_pembayaran');
+        $image->storeAs('public/foto', $image->hashName());
 
         $pembayarans = pembayaran::create([
             'nama_zakat' => $request->nama_zakat,
             'nama_muzakki' => $request->nama_muzakki,
             'jumlah' => $request->jumlah,
             'metode_pembayaran' => $request->metode_pembayaran,
+            'bukti_pembayaran' => $image->hashName(),
+            'status' => $request->status,
+
         ]);
 
         return redirect()->route('mustahiq.index');
@@ -108,6 +116,7 @@ class PembayaranController extends Controller
              'nama_muzakki' => 'required',
              'jumlah' => 'required',
              'metode_pembayaran' => 'required',
+             'bukti_pembayaran' => 'required',
          ]);
 
          $pembayarans = pembayaran::where('id', $id);

@@ -13,7 +13,7 @@ class pembayaran extends Model
     protected $fillable = [
         'nama_zakat',
         'nama_muzakki',
-        'total_donasi',
+        'jumlah',
         'metode_pembayaran',
         'bukti_pembayaran',
         'status',
