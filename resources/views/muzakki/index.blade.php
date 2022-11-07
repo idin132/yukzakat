@@ -20,6 +20,7 @@
                     <th>Nama Muzakki</th>
                     <th>Nomor Handphone</th>
                     <th>Alamat</th>
+                    <th>Action</th>
                 </tr>
             </thead>
             @foreach ($muzakkis as $key=>$muzakki)
@@ -39,11 +40,6 @@
                                   <i class="fas fa-solid fa-trash"></i>
                                 </button>
                               </form>
-
-                              <a href="{{route('muzakki.show', $muzakki->id)}}" class="btn btn-info bi bi-send"></a>
-                        <a href="{{route ('muzakki.edit', $muzakki->id)}}" class="btn btn-warning">
-                                <i class="fas fa-solid fa-pen"></i>
-                              </a>
                     </td>
                 </tr>
                 @endforeach

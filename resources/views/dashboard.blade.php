@@ -91,7 +91,7 @@
     <div class="container text-center">
         <div class="row justify-content-center">
             <div class="col-md-8 w-100">
-                <div class="card text-white bg-blue">
+                <div class="card text-white bg-dark">
                     <div class="card-header">
                         <div class="row justify-content-center">
                             <div class="text-bold h3">Total Donasi Terkumpul</div>
@@ -99,6 +99,42 @@
                     </div>
                     <div class="card-body h3">
                        Rp. {{ number_format($total_donasi) }}
+                        <h5 class="card-title"></h5>
+                        <p class="card-text justify-content-end"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container text-center">
+        <div class="row justify-content-center">
+            <div class="col-md-8 w-100">
+                <div class="card text-white bg-dark">
+                    <div class="card-header">
+                        <div class="row justify-content-center">
+                            <div class="text-bold h3">Total Zakat Tersalurkan</div>
+                        </div>
+                    </div>
+                    <div class="card-body h3">
+                       Rp. {{ number_format($total_tersalurkan) }}
+                        <h5 class="card-title"></h5>
+                        <p class="card-text justify-content-end"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container text-center">
+        <div class="row justify-content-center">
+            <div class="col-md-8 w-100">
+                <div class="card text-white bg-dark">
+                    <div class="card-header">
+                        <div class="row justify-content-center">
+                            <div class="text-bold h3">Total Uang Yang Tersisa</div>
+                        </div>
+                    </div>
+                    <div class="card-body h3">
+                       Rp. {{ number_format($total_donasi + $total_tersalurkan) }}
                         <h5 class="card-title"></h5>
                         <p class="card-text justify-content-end"></p>
                     </div>

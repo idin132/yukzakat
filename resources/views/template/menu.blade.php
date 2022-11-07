@@ -1,11 +1,19 @@
 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
     crossorigin="anonymous"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css">
-
+<link href="{{ asset('css/sidebar.css') }}" rel="stylesheet">
 <nav class="mt-2">
     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
         <!-- Add icons to the links using the .nav-icon class
            with font-awesome or any other icon font library -->
+           <div  class="user-panel mt-1 pb-3 mb-3 d-flex">
+            <div class="image">
+              <img src="img/logo_head_zakat.png"  class="brand-image img-circle elevation-3" alt="">
+            </div>
+           <div class="info">
+            <b>  <a style="text-decoration: none;" href="/" class="d-block">YUK ZAKAT</a> </b>
+            </div>
+          </div>
             <li class="nav-item">
                 <a href="{{ route('dashboard') }}" class="nav-link">
                     <i class="nav-icon bi bi-clipboard-fill mx-1"></i>

@@ -42,8 +42,6 @@
                                   <i class="fas fa-solid fa-trash"></i>
                                 </button>
                               </form>
-
-                              <a href="{{route('penerimaan.show', $item->id)}}" class="btn btn-info bi bi-send"></a>
                         <a href="{{route ('penerimaan.edit', $item->id)}}" class="btn btn-warning">
                                 <i class="fas fa-solid fa-pen"></i>
                               </a>

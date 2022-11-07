@@ -29,6 +29,15 @@
 
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <div class="container">
+          <br><br>
+          <form action="{{url('actionlogout')}}" method="post">
+            @csrf
+            <button type="submit" class="btn btn-dark">Logout</button>
+          </form>
+        </div>
+      </li>
       <!-- Navbar Search 
       <li class="nav-item">
         <a class="nav-link" data-widget="navbar-search" href="#" role="button">
@@ -37,7 +46,7 @@
         -->
       
         
-        <div class="navbar-search-block">
+        {{-- <div class="navbar-search-block">
           <form class="form-inline">
             <div class="input-group input-group-sm">
               <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
@@ -52,7 +61,7 @@
             </div>
           </form>
         </div>
-      </li>
+      </li> --}}
 
       <!-- Messages Dropdown Menu 
       <li class="nav-item dropdown">
@@ -141,15 +150,7 @@
         </div>
       </li>
 -->
-      <li class="nav-item">
-        <div class="container">
-          <br><br>
-          <form action="{{url('actionlogout')}}" method="post">
-            @csrf
-            <button type="submit" class="btn btn-dark">Logout</button>
-          </form>
-        </div>
-      </li>
+      
       <!--Pengaturan widget harus dengan demo.js
       <li class="nav-item">
         <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
@@ -174,17 +175,17 @@
     <br>
      <!-- <img src="https://i.ibb.co/XZz9KXZ/scl3.png"  class="img-thumbnail" alt="">-->
       <!-- Sidebar user (optional) -->
-      <div  class="user-panel mt-1 pb-3 mb-3 d-flex">
+      {{-- <div  class="user-panel mt-1 pb-3 mb-3 d-flex">
         <div class="image">
           <img src="img/logo_head_zakat.png"  class="brand-image img-circle elevation-3" alt="">
         </div>
        <div class="info">
         <b>  <a style="text-decoration: none;" href="/" class="d-block">YUK ZAKAT</a> </b>
         </div>
-      </div>
+      </div> --}}
 
       <!-- SidebarSearch Form search warning -->
-      <div class="form-inline">
+      {{-- <div class="form-inline">
         <div class="input-group" data-widget="sidebar-search">
           <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
           <div class="input-group-append">
@@ -193,7 +194,7 @@
             </button>
           </div>
         </div>
-      </div>
+      </div> --}}
 
       <!-- Sidebar Menu -->
     @include('template.menu')

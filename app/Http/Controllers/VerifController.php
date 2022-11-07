@@ -17,9 +17,20 @@ class VerifController extends Controller
      */
     public function index()
     {
+        $verifikasi = pembayaran::where('status', true);
         $verif = pembayaran::all();
-        return view('verif.index', compact('verif'));
+        return view('verif.index', compact('verif', 'verifikasi'));
     }
+
+    public function verifikasi($id)
+    {
+        $verifikasi = pembayaran::find($id);
+
+        $verifikasi->status = true;
+
+        return redirect()->back()->with('message', 'Success');
+    }
+
 
     /**
      * Show the form for creating a new resource.

@@ -91,7 +91,7 @@ class PenerimaanController extends Controller
     public function edit($id)
     {
         $penerimaan = penerimaan::where('id', $id)->first();
-        return view('penerimaan.show', [
+        return view('penerimaan.edit', [
             "penerimaan" => $penerimaan,
         ]);
     }
@@ -106,6 +106,7 @@ class PenerimaanController extends Controller
 
     public function update(Request $request, $id)
     {
+
         $this->validate($request, [
             'nama' => 'required',
             'alamat' => 'required',
@@ -113,8 +114,34 @@ class PenerimaanController extends Controller
             'bukti' => 'required',
         ]);
 
-        $penerimaan = penerimaan::where('id', $id);
-        $penerimaan->update($request->except('_token', '_method'));
+        $penerimaan = penerimaan::where('id', $id)->first();
+
+        if ($request->file('bukti') == "") {
+
+            $penerimaan->update([
+                'nama' => $request->nama,
+                'alamat' => $request->alamat,
+                'jumlah' => $request->jumlah,
+
+            ]);
+        } else {
+            Storage::disk('local')->delete('public/foto/' . $penerimaan->bukti);
+
+            $image = $request->file('bukti');
+            $image->storeAs('public/foto', $image->hashName());
+
+            $penerimaan->update([
+                'bukti' => $image->hashName(),
+                'nama' => $request->nama,
+                'alamat' => $request->alamat,
+                'jumlah' => $request->jumlah,
+
+            ]);
+        }
+
+
+        
+        // $penerimaan->update($request->except('_token', '_method'));
         return redirect()->route('penerimaan.index');
     }
 
