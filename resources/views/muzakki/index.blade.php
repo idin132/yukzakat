@@ -13,7 +13,7 @@
         <br>
         <a href="{{ route('muzakki.create') }}", class="btn btn-secondary">+</a>
         <br><br>
-        <table class="table table-striped ">
+        <table id="maintable">
             <thead>
                 <tr>
                     <th>NO</th>

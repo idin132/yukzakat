@@ -13,7 +13,7 @@
         <br>
         <a href="{{route('mustahiq.create')}}" class="btn btn-secondary">+</a>
         <br><br>
-        <table id="maintable" class="table table-striped ">
+        <table id="maintable">
             <thead>
                 <tr>
                     <th>NO</th>
@@ -39,11 +39,12 @@
                                 <button type="submit" class="btn btn-danger">
                                   <i class="fas fa-solid fa-trash"></i>
                                 </button>
-                              </form>
-
-                        <a href="{{ route('mustahiq.edit', $item->id) }}"class="btn btn-warning">
+                                <a href="{{ route('mustahiq.edit', $item->id) }}"class="btn btn-warning">
                                 <i class="fas fa-solid fa-pen"></i>
                               </a>
+                              </form>
+
+                        
                     </td>
                 </tr>
                 @endforeach

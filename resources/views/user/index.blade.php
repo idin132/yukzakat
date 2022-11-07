@@ -13,7 +13,7 @@
         <br>
         <a href="{{ route('user.create') }}", class="btn btn-secondary">+</a>
         <br><br>
-        <table class="table table-striped ">
+        <table id="maintable">
             <thead>
                 <tr>
                     <th>NO</th>
@@ -45,12 +45,13 @@
                                 <button type="submit" class="btn btn-danger">
                                   <i class="fas fa-solid fa-trash"></i>
                                 </button>
+                                <a href="{{route ('user.edit', $item->id)}}" class="btn btn-warning">
+                                    <i class="fas fa-solid fa-pen"></i>
+                                </a>
                               </form>
 
                               
-                              <a href="{{route ('user.edit', $item->id)}}" class="btn btn-warning">
-                                <i class="fas fa-solid fa-pen"></i>
-                              </a>
+                              
                     </td>
                 </tr>
                 @endforeach
